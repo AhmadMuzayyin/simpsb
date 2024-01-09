@@ -13,7 +13,7 @@ return new class extends Migration
     {
         Schema::create('galeris', function (Blueprint $table) {
             $table->id();
-            $table->string('slug')->unique();
+            $table->enum('kategori', ['Belajar', 'Bermain', 'Sekolah', 'Kelas']);
             $table->string('judul');
             $table->longText('deskripsi');
             $table->string('gambar');

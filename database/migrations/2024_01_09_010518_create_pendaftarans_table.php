@@ -1,5 +1,6 @@
 <?php
 
+use App\Models\Siswa;
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
@@ -11,12 +12,12 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('users', function (Blueprint $table) {
+        Schema::create('pendaftarans', function (Blueprint $table) {
             $table->id();
-            $table->string('name');
-            $table->string('username');
-            $table->string('password');
-            $table->enum('level', [true, false]);
+            $table->foreignIdFor(Siswa::class)->constrained()->cascadeOnDelete();
+            $table->date('tgl_pendaftaran');
+            $table->year('tahun_akademik');
+            $table->enum('status', ['Belum Verifikasi', 'Sedang Verifikasi Data', 'Diterima', 'Ditolak']);
             $table->timestamps();
         });
     }
@@ -26,6 +27,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('users');
+        Schema::dropIfExists('pendaftarans');
     }
 };

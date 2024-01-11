@@ -42,20 +42,20 @@ return new class extends Migration
             $table->string('pekerjaan_ibu');
             $table->string('kondisi_ibu');
             $table->double('penghasilan');
-            $table->text('alamat');
-            $table->bigInteger('telepon');
+            $table->text('alamat_ortu');
+            $table->bigInteger('telepon_ortu');
             $table->string('nama_wali')->nullable();
             $table->string('pekerjaan_wali')->nullable();
             $table->string('kondisi_wali')->nullable();
-            $table->double('penghasilan')->nullable();
-            $table->text('alamat')->nullable();
-            $table->bigInteger('telepon')->nullable();
+            $table->double('penghasilan_wali')->nullable();
+            $table->text('alamat_wali')->nullable();
+            $table->bigInteger('telepon_wali')->nullable();
             $table->string('file_ijazah')->nullable();
             $table->string('file_skhun')->nullable();
             $table->string('file_kk')->nullable();
             $table->string('file_akta')->nullable();
             $table->string('file_foto')->nullable();
-            $table->enum('status',['Calon Siswa', 'Siswa']);
+            $table->enum('status', ['Calon Siswa', 'Siswa']);
             $table->timestamps();
         });
     }

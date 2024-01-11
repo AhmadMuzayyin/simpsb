@@ -16,14 +16,8 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('index');
 });
-
-Route::prefix('admin')->group(function(){
-    Route::get('/', function () {
-        return view('admin.index');
-    });
-});
-Route::prefix('siswa')->group(function(){
-    Route::get('/', function () {
-        return view('siswa.index');
-    });
-});
+Route::get('/login', function () {
+    echo 'login';
+})->name('login');
+require __DIR__ . '/admin.php';
+require __DIR__ . '/siswa.php';

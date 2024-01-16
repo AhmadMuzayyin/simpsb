@@ -1,4 +1,4 @@
-@extends('layouts.app', ['title' => 'Kelas'])
+@extends('layouts.app', ['title' => 'Galeri'])
 @section('content')
     <!-- Content Row -->
     <div class="row">
@@ -7,10 +7,10 @@
                 <div class="card-header py-3">
                     <div class="row">
                         <div class="col">
-                            <h6 class="m-0 font-weight-bold text-primary">Data Kelas</h6>
+                            <h6 class="m-0 font-weight-bold text-primary">Data Galeri</h6>
                         </div>
                         <div class="col-right">
-                            <button class="btn btn-primary" data-toggle="modal" data-target="#tambahKelas">
+                            <button class="btn btn-primary" data-toggle="modal" data-target="#tambahGaleri">
                                 <i class="fas fa-plus"></i>
                             </button>
                         </div>
@@ -22,34 +22,40 @@
                             <thead>
                                 <tr>
                                     <th>#</th>
-                                    <th>Nama</th>
-                                    <th>Maksimal</th>
-                                    <th>Terisi</th>
+                                    <th>Kategori</th>
+                                    <th>Judul</th>
+                                    <th>Deskripsi</th>
+                                    <th>Gambar</th>
                                     <th>Aksi</th>
                                 </tr>
                             </thead>
                             <tfoot>
                                 <tr>
                                     <th>#</th>
-                                    <th>Nama</th>
-                                    <th>Maksimal</th>
-                                    <th>Terisi</th>
+                                    <th>Kategori</th>
+                                    <th>Judul</th>
+                                    <th>Deskripsi</th>
+                                    <th>Gambar</th>
                                     <th>Aksi</th>
                                 </tr>
                             </tfoot>
                             <tbody>
-                                @foreach ($kelas as $item)
+                                @foreach ($galeries as $item)
                                     <tr>
                                         <td>{{ $loop->iteration }}</td>
-                                        <td>{{ $item->nama }}</td>
-                                        <td>{{ $item->maksimal }}</td>
-                                        <td>{{ $item->terisi }}</td>
+                                        <td>{{ $item->kategori }}</td>
+                                        <td>{{ $item->judul }}</td>
+                                        <td>{{ $item->deskripsi }}</td>
+                                        <td>
+                                            <img src="{{ url($item->gambar) }}" alt="gambar" width="100"
+                                                class="img-fluid">
+                                        </td>
                                         <td>
                                             <button type="button" class="btn btn-warning btn-circle btn-sm"
-                                                data-toggle="modal" data-target="#editKelas-{{ $loop->iteration }}">
+                                                data-toggle="modal" data-target="#editGaleri-{{ $loop->iteration }}">
                                                 <i class="fas fa-pencil"></i>
                                             </button>
-                                            <a href="{{ route('admin.kelas.destroy', $item->id) }}">
+                                            <a href="{{ route('admin.galeri.destroy', $item->id) }}">
                                                 <button type="button" class="btn btn-danger btn-circle btn-sm"
                                                     onclick="confirm('Anda yakin untuk menghapus data ini?')">
                                                     <i class="fas fa-trash"></i>
@@ -67,7 +73,7 @@
         </div>
     </div>
     <!-- Logout Modal-->
-    <div class="modal fade" id="tambahKelas" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+    <div class="modal fade" id="tambahGaleri" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
         aria-hidden="true">
         <div class="modal-dialog modal-lg" role="document">
             <div class="modal-content">
@@ -77,21 +83,53 @@
                         <span aria-hidden="true">×</span>
                     </button>
                 </div>
-                <form action="{{ route('admin.kelas.store') }}" method="post">
+                <form action="{{ route('admin.galeri.store') }}" method="post" enctype="multipart/form-data">
                     @csrf
                     <div class="modal-body">
                         <div class="form-group">
-                            <label for="">Nama</label>
-                            <input type="text" name="nama" id="" class="form-control" placeholder="Nama">
+                            <label for="kategori">Kategori</label>
+                            <select name="kategori" id="kategori" class="form-control">
+                                <option value="Belajar">Belajar</option>
+                                <option value="Bermain">Bermain</option>
+                                <option value="Sekolah">Sekolah</option>
+                                <option value="Kelas">Kelas</option>
+                                <option value="Kegiatan">Kegiatan</option>
+                                <option value="Prestasi">Prestasi</option>
+                                <option value="Lainnya">Lainnya</option>
+                            </select>
                         </div>
                         <div class="form-group">
-                            <label for="">Maksimal</label>
-                            <input type="number" name="maksimal" id="" class="form-control"
-                                placeholder="Maksimal">
+                            <label for="judul">Judul</label>
+                            <input type="text" name="judul" id="judul" class="form-control @error('judul')
+                                is-invalid
+                            @enderror"
+                                placeholder="Judul">
+                            @error('judul')
+                                <div class="invalid-feedback">
+                                    {{ $message }}
+                                </div>
+                            @enderror
                         </div>
                         <div class="form-group">
-                            <label for="">Terisi</label>
-                            <input type="number" name="terisi" id="" class="form-control" placeholder="Terisi">
+                            <label for="gambar">Gambar</label>
+                            <input type="file" name="gambar" id="gambar" class="form-control @error('gambar')
+                                is-invalid
+                            @enderror" placeholder="Gambar">
+                            @error('gambar')
+                                <div class="invalid-feedback">
+                                    {{ $message }}
+                                </div>
+                            @enderror
+                        </div>
+                        <div class="form-group">
+                            <label for="deskripsi">Deskripsi</label>
+                            <textarea name="deskripsi" id="deskripsi" rows="5" class="form-control @error('deskripsi') is-invalid @enderror"
+                                placeholder="Deskripsi"></textarea>
+                            @error('deskripsi')
+                                <div class="invalid-feedback">
+                                    {{ $message }}
+                                </div>
+                            @enderror
                         </div>
                     </div>
                     <div class="modal-footer">

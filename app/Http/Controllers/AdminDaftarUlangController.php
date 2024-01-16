@@ -6,5 +6,9 @@ use Illuminate\Http\Request;
 
 class AdminDaftarUlangController extends Controller
 {
-    //
+    public function index()
+    {
+        $daftar_ulang = \App\Models\DaftarUlang::all();
+        return view('home.admin.daftar_ulang.index', compact('daftar_ulang'));
+    }
 }

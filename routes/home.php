@@ -22,12 +22,16 @@ Route::middleware(['auth'])->group(function () {
         });
         Route::controller(AdminSiswaBaruController::class)->group(function () {
             Route::get('/siswa', 'index')->name('siswa.index');
+            Route::get('/siswa/{siswa}/confirmation', 'confirmation')->name('siswa.confirmation');
         });
         Route::controller(AdminDaftarUlangController::class)->group(function () {
             Route::get('/daftar_ulang', 'index')->name('daftar_ulang.index');
         });
         Route::controller(AdminGaleriController::class)->group(function () {
             Route::get('/galeri', 'index')->name('galeri.index');
+            Route::post('/galeri/store', 'store')->name('galeri.store');
+            Route::post('/galeri/{galeri}/update', 'update')->name('galeri.update');
+            Route::get('/galeri/{galeri}/destroy', 'destroy')->name('galeri.destroy');
         });
         Route::controller(AdminInfoController::class)->group(function () {
             Route::get('/info', 'index')->name('info.index');

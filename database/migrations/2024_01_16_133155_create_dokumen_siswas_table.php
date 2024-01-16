@@ -1,9 +1,9 @@
 <?php
 
 use App\Models\Siswa;
-use Illuminate\Database\Migrations\Migration;
-use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
+use Illuminate\Database\Schema\Blueprint;
+use Illuminate\Database\Migrations\Migration;
 
 return new class extends Migration
 {
@@ -12,12 +12,13 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('pendaftarans', function (Blueprint $table) {
+        Schema::create('dokumen_siswas', function (Blueprint $table) {
             $table->id();
             $table->foreignIdFor(Siswa::class)->constrained()->cascadeOnDelete();
-            $table->date('tgl_pendaftaran');
-            $table->year('tahun_akademik');
-            $table->enum('status', ['Belum Verifikasi', 'Sedang Verifikasi Data', 'Diterima', 'Ditolak']);
+            $table->string('file_pendukung');
+            $table->string('file_kk');
+            $table->string('file_akta');
+            $table->string('file_foto');
             $table->timestamps();
         });
     }
@@ -27,6 +28,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('pendaftarans');
+        Schema::dropIfExists('dokumen_siswas');
     }
 };

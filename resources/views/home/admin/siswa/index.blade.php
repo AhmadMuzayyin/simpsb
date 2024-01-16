@@ -45,6 +45,9 @@
                                         <td>{{ $item->kelas->nama }}</td>
                                         <td>{{ $item->status }}</td>
                                         <td>
+                                            <a href="{{ route('admin.siswa.confirmation', $item->id) }}">
+                                                <button class="btn btn-success btn-circle btn-sm"><i class="fas fa-check"></i></button>
+                                            </a>
                                             <button type="button" class="btn btn-warning btn-circle btn-sm"
                                                 data-toggle="modal" data-target="#editKelas-{{ $loop->iteration }}">
                                                 <i class="fas fa-pencil"></i>

@@ -11,12 +11,11 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('galeris', function (Blueprint $table) {
+        Schema::create('pendaftarans', function (Blueprint $table) {
             $table->id();
-            $table->enum('kategori', ['Belajar', 'Bermain', 'Sekolah', 'Kelas', 'Kegiatan', 'Prestasi', 'Lainnya']);
-            $table->string('judul');
-            $table->longText('deskripsi');
-            $table->string('gambar');
+            $table->date('mulai');
+            $table->date('berakhir');
+            $table->year('tahun_akademik');
             $table->timestamps();
         });
     }
@@ -26,6 +25,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('galeris');
+        Schema::dropIfExists('pendaftarans');
     }
 };

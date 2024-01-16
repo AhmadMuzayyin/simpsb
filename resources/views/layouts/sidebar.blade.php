@@ -22,40 +22,43 @@
     @if (auth()->user()->level == 'admin')
         <!-- Divider -->
         <hr class="sidebar-divider">
-        <!-- Heading -->
-        <div class="sidebar-heading">
-            Interface
-        </div>
         <!-- Nav Item - Pages Collapse Menu -->
-        <li class="nav-item {{ request()->routeIs('admin.kelas.*') ? 'active' : '' }}"">
+        <li class="nav-item {{ request()->routeIs('admin.kelas.*') ? 'active' : '' }}">
             <a class="nav-link" href="{{ route('admin.kelas.index') }}">
                 <i class="fas fa-house-flag"></i>
                 <span>Data Kelas</span>
             </a>
         </li>
         <!-- Nav Item - Pages Collapse Menu -->
-        <li class="nav-item {{ request()->routeIs('admin.siswa.*') ? 'active' : '' }}"">
-            <a class="nav-link" href="{{ route('admin.siswa.index') }}">
-                <i class="fas fa-user-graduate"></i>
-                <span>Penerimaan Siswa baru</span>
+        <li class="nav-item {{ request()->routeIs('admin.pendaftaran.*') ? 'active' : '' }}">
+            <a class="nav-link" href="{{ route('admin.pendaftaran.index') }}">
+                <i class="fas fa-user"></i>
+                <span>Pendaftaran Siswa baru</span>
             </a>
         </li>
         <!-- Nav Item - Pages Collapse Menu -->
-        <li class="nav-item {{ request()->routeIs('admin.daftar_ulang.*') ? 'active' : '' }}"">
+        <li class="nav-item {{ request()->routeIs('admin.siswa.*') ? 'active' : '' }}">
+            <a class="nav-link" href="{{ route('admin.siswa.index') }}">
+                <i class="fas fa-user-graduate"></i>
+                <span>Siswa baru</span>
+            </a>
+        </li>
+        <!-- Nav Item - Pages Collapse Menu -->
+        <li class="nav-item {{ request()->routeIs('admin.daftar_ulang.*') ? 'active' : '' }}">
             <a class="nav-link" href="{{ route('admin.daftar_ulang.index') }}">
                 <i class="fas fa-arrows-rotate"></i>
                 <span>Daftar Ulang</span>
             </a>
         </li>
         <!-- Nav Item - Pages Collapse Menu -->
-        <li class="nav-item {{ request()->routeIs('admin.galeri.*') ? 'active' : '' }}"">
+        <li class="nav-item {{ request()->routeIs('admin.galeri.*') ? 'active' : '' }}">
             <a class="nav-link" href="{{ route('admin.galeri.index') }}">
                 <i class="fas fa-images"></i>
                 <span>Data Galeri</span>
             </a>
         </li>
         <!-- Nav Item - Pages Collapse Menu -->
-        <li class="nav-item {{ request()->routeIs('admin.info.*') ? 'active' : '' }}"">
+        <li class="nav-item {{ request()->routeIs('admin.info.*') ? 'active' : '' }}">
             <a class="nav-link" href="{{ route('admin.info.index') }}">
                 <i class="fab fa-blogger"></i>
                 <span>Data Info</span>
@@ -63,12 +66,8 @@
         </li>
         <!-- Divider -->
         <hr class="sidebar-divider">
-        <!-- Heading -->
-        <div class="sidebar-heading">
-            Addons
-        </div>
         <!-- Nav Item - Pages Collapse Menu -->
-        <li class="nav-item {{ request()->routeIs('admin.user.*') ? 'active' : '' }}"">
+        <li class="nav-item {{ request()->routeIs('admin.user.*') ? 'active' : '' }}">
             <a class="nav-link" href="{{ route('admin.user.index') }}">
                 <i class="fas fa-user-gear"></i>
                 <span>Data Admin</span>
@@ -77,26 +76,22 @@
     @else
         <!-- Divider -->
         <hr class="sidebar-divider">
-        <!-- Heading -->
-        <div class="sidebar-heading">
-            Interface
-        </div>
         <!-- Nav Item - Pages Collapse Menu -->
-        <li class="nav-item {{ request()->routeIs('dashboard') ? 'active' : '' }}"">
+        <li class="nav-item {{ request()->routeIs('dashboard') ? 'active' : '' }}">
             <a class="nav-link" href="">
                 <i class="fas fa-tablet"></i>
                 <span>Data Pendaftaran</span>
             </a>
         </li>
         <!-- Nav Item - Pages Collapse Menu -->
-        <li class="nav-item {{ request()->routeIs('dashboard') ? 'active' : '' }}"">
+        <li class="nav-item {{ request()->routeIs('dashboard') ? 'active' : '' }}">
             <a class="nav-link" href="">
                 <i class="fas fa-upload"></i>
                 <span>Upload Dokumen</span>
             </a>
         </li>
         <!-- Nav Item - Pages Collapse Menu -->
-        <li class="nav-item {{ request()->routeIs('dashboard') ? 'active' : '' }}"">
+        <li class="nav-item {{ request()->routeIs('dashboard') ? 'active' : '' }}">
             <a class="nav-link" href="">
                 <i class="fas fa-arrows-rotate"></i>
                 <span>Daftar Ulang</span>

@@ -21,6 +21,9 @@ Route::middleware(['auth'])->group(function () {
             Route::get('/kelas/{kelas}', 'destroy')->name('kelas.destroy');
         });
         Route::controller(AdminSiswaBaruController::class)->group(function () {
+            Route::get('/pendaftaran', 'index')->name('pendaftaran.index');
+        });
+        Route::controller(AdminSiswaBaruController::class)->group(function () {
             Route::get('/siswa', 'index')->name('siswa.index');
             Route::get('/siswa/{siswa}/confirmation', 'confirmation')->name('siswa.confirmation');
         });

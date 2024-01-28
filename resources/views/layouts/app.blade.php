@@ -33,7 +33,7 @@
             <footer class="sticky-footer bg-white">
                 <div class="container my-auto">
                     <div class="copyright text-center my-auto">
-                        <span>Copyright &copy; Your Website 2021</span>
+                        <span>Copyright &copy; SMK POTENSIAL BADRUL HUDA {{ date('Y') }}</span>
                     </div>
                 </div>
             </footer>
@@ -46,6 +46,14 @@
     <!-- End of Page Wrapper -->
     @include('layouts.footer')
     @stack('js')
+    <script>
+        if (session('success')) {
+            toastr.success("{{ session('success') }}");
+        }
+        if (session('error')) {
+            toastr.error("{{ session('error') }}");
+        }
+    </script>
 </body>
 
 </html>

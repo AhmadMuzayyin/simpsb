@@ -15,9 +15,9 @@ class Siswa
      */
     public function handle(Request $request, Closure $next): Response
     {
-        if ($request->user() != null && $request->user()->level !== 'siswa') {
-            abort(403, 'Anda tidak memiliki hak akses');
-        }
+        // if ($request->user() != null && $request->user()->level !== 'siswa') {
+        //     abort(403, 'Anda tidak memiliki hak akses');
+        // }
         return $next($request);
     }
 }

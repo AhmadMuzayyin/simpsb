@@ -4,33 +4,31 @@
     <div class="modal-dialog" role="document">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLabel">Edit Kelas - {{ $item->nama }}</h5>
+                <h5 class="modal-title" id="exampleModalLabel">Edit Admin - {{ $item->name }}</h5>
                 <button class="close" type="button" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">×</span>
                 </button>
             </div>
-            <form action="{{ route('admin.kelas.update', $item->id) }}" method="post">
+            <form action="{{ route('admin.user.update', $item->id) }}" method="post">
                 @csrf
                 <div class="modal-body">
                     <div class="form-group">
-                        <label for="nama">Nama Kelas</label>
-                        <input type="text" class="form-control" name="nama" id="nama"
-                            value="{{ $item->nama }}">
+                        <label for="name">Nama</label>
+                        <input type="text" name="name" id="name" class="form-control" placeholder="Nama" value="{{ $item->name }}">
                     </div>
                     <div class="form-group">
-                        <label for="maksimal">maksimal</label>
-                        <input type="number" class="form-control" name="maksimal" id="maksimal"
-                            value="{{ $item->maksimal }}">
+                        <label for="email">Email</label>
+                        <input type="email" name="email" id="email" class="form-control"
+                            placeholder="Email" value="{{ $item->email }}">
                     </div>
                     <div class="form-group">
-                        <label for="terisi"></label>
-                        <input type="number" class="form-control" name="terisi" id="terisi"
-                            value="{{ $item->terisi }}">
+                        <label for="password">Password</label>
+                        <input type="password" name="password" id="password" class="form-control" placeholder="Password">
                     </div>
                 </div>
                 <div class="modal-footer">
                     <button class="btn btn-secondary" type="button" data-dismiss="modal">Tutup</button>
-                    <button class="btn btn-primary" type="submit">Simpan</button>
+                    <button type="submit" class="btn btn-primary">Simpan</button>
                 </div>
             </form>
         </div>

@@ -24,6 +24,8 @@
                                     <th>#</th>
                                     <th>Nama</th>
                                     <th>Kelas</th>
+                                    <th>Biodata</th>
+                                    <th>Dokumen</th>
                                     <th>Status</th>
                                     <th>Aksi</th>
                                 </tr>
@@ -33,6 +35,8 @@
                                     <th>#</th>
                                     <th>Nama</th>
                                     <th>Kelas</th>
+                                    <th>Biodata</th>
+                                    <th>Dokumen</th>
                                     <th>Status</th>
                                     <th>Aksi</th>
                                 </tr>
@@ -43,22 +47,32 @@
                                         <td>{{ $loop->iteration }}</td>
                                         <td>{{ $item->user->name }}</td>
                                         <td>{{ $item->kelas->nama }}</td>
+                                        <td>
+                                            <button type="button" class="btn btn-warning btn-circle btn-sm"
+                                                data-toggle="modal" data-target="#detailSiswa-{{ $loop->iteration }}">
+                                                <i class="fas fa-eye"></i>
+                                            </button>
+                                        </td>
+                                        <td>
+                                            <button type="button" class="btn btn-info btn-circle btn-sm"
+                                                data-toggle="modal" data-target="#dokumenSiswa-{{ $loop->iteration }}">
+                                                <i class="fas fa-eye"></i>
+                                            </button>
+                                        </td>
                                         <td>{{ $item->status }}</td>
                                         <td>
                                             <a href="{{ route('admin.siswa.confirmation', $item->id) }}">
-                                                <button class="btn btn-success btn-circle btn-sm"><i class="fas fa-check"></i></button>
+                                                <button class="btn btn-success btn-circle btn-sm"><i
+                                                        class="fas fa-check"></i></button>
                                             </a>
-                                            <button type="button" class="btn btn-warning btn-circle btn-sm"
-                                                data-toggle="modal" data-target="#editKelas-{{ $loop->iteration }}">
-                                                <i class="fas fa-pencil"></i>
-                                            </button>
                                             <a href="{{ route('admin.kelas.destroy', $item->id) }}">
                                                 <button type="button" class="btn btn-danger btn-circle btn-sm"
                                                     onclick="confirm('Anda yakin untuk menghapus data ini?')">
-                                                    <i class="fas fa-trash"></i>
+                                                    <i class="fas fa-x"></i>
                                                 </button>
                                             </a>
-                                            @include('home.admin.kelas.modal')
+                                            @include('home.admin.siswa.modal')
+                                            @include('home.admin.siswa.dokumen')
                                         </td>
                                     </tr>
                                 @endforeach
@@ -66,42 +80,6 @@
                         </table>
                     </div>
                 </div>
-            </div>
-        </div>
-    </div>
-    <!-- Logout Modal-->
-    <div class="modal fade" id="tambahSiswa" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
-        aria-hidden="true">
-        <div class="modal-dialog modal-lg" role="document">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLabel">Tambah Siswa Baru</h5>
-                    <button class="close" type="button" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">×</span>
-                    </button>
-                </div>
-                <form action="{{ route('admin.kelas.store') }}" method="post">
-                    @csrf
-                    <div class="modal-body">
-                        <div class="form-group">
-                            <label for="">Nama</label>
-                            <input type="text" name="nama" id="" class="form-control" placeholder="Nama">
-                        </div>
-                        <div class="form-group">
-                            <label for="">Maksimal</label>
-                            <input type="number" name="maksimal" id="" class="form-control"
-                                placeholder="Maksimal">
-                        </div>
-                        <div class="form-group">
-                            <label for="">Terisi</label>
-                            <input type="number" name="terisi" id="" class="form-control" placeholder="Terisi">
-                        </div>
-                    </div>
-                    <div class="modal-footer">
-                        <button class="btn btn-secondary" type="button" data-dismiss="modal">Tutup</button>
-                        <button type="submit" class="btn btn-primary">Simpan</button>
-                    </div>
-                </form>
             </div>
         </div>
     </div>

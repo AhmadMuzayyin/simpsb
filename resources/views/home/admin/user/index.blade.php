@@ -1,4 +1,4 @@
-@extends('layouts.app', ['title' => 'Kelas'])
+@extends('layouts.app', ['title' => 'Admin'])
 @section('content')
     <!-- Content Row -->
     <div class="row">
@@ -7,7 +7,7 @@
                 <div class="card-header py-3">
                     <div class="row">
                         <div class="col">
-                            <h6 class="m-0 font-weight-bold text-primary">Data Kelas</h6>
+                            <h6 class="m-0 font-weight-bold text-primary">Data Admin</h6>
                         </div>
                         <div class="col-right">
                             <button class="btn btn-primary" data-toggle="modal" data-target="#tambahKelas">
@@ -23,8 +23,8 @@
                                 <tr>
                                     <th>#</th>
                                     <th>Nama</th>
-                                    <th>Maksimal</th>
-                                    <th>Terisi</th>
+                                    <th>Email</th>
+                                    <th>Level</th>
                                     <th>Aksi</th>
                                 </tr>
                             </thead>
@@ -33,23 +33,23 @@
                                     <th>#</th>
                                     <th>Nama</th>
                                     <th>Maksimal</th>
-                                    <th>Terisi</th>
+                                    <th>Level</th>
                                     <th>Aksi</th>
                                 </tr>
                             </tfoot>
                             <tbody>
-                                @foreach ($kelas as $item)
+                                @foreach ($users as $item)
                                     <tr>
                                         <td>{{ $loop->iteration }}</td>
-                                        <td>{{ $item->nama }}</td>
-                                        <td>{{ $item->maksimal }}</td>
-                                        <td>{{ $item->terisi }}</td>
+                                        <td>{{ $item->name }}</td>
+                                        <td>{{ $item->email }}</td>
+                                        <td>{{ $item->level }}</td>
                                         <td>
                                             <button type="button" class="btn btn-warning btn-circle btn-sm"
                                                 data-toggle="modal" data-target="#editKelas-{{ $loop->iteration }}">
                                                 <i class="fas fa-pencil"></i>
                                             </button>
-                                            <a href="{{ route('admin.kelas.destroy', $item->id) }}">
+                                            <a href="{{ route('admin.user.destroy', $item->id) }}">
                                                 <button type="button" class="btn btn-danger btn-circle btn-sm"
                                                     onclick="confirm('Anda yakin untuk menghapus data ini?')">
                                                     <i class="fas fa-trash"></i>
@@ -77,21 +77,21 @@
                         <span aria-hidden="true">×</span>
                     </button>
                 </div>
-                <form action="{{ route('admin.kelas.store') }}" method="post">
+                <form action="{{ route('admin.user.store') }}" method="post">
                     @csrf
                     <div class="modal-body">
                         <div class="form-group">
-                            <label for="">Nama</label>
-                            <input type="text" name="nama" id="" class="form-control" placeholder="Nama">
+                            <label for="name">Nama</label>
+                            <input type="text" name="name" id="name" class="form-control" placeholder="Nama">
                         </div>
                         <div class="form-group">
-                            <label for="">Maksimal</label>
-                            <input type="number" name="maksimal" id="" class="form-control"
-                                placeholder="Maksimal">
+                            <label for="email">Email</label>
+                            <input type="email" name="email" id="email" class="form-control"
+                                placeholder="Email">
                         </div>
                         <div class="form-group">
-                            <label for="">Terisi</label>
-                            <input type="number" name="terisi" id="" class="form-control" placeholder="Terisi">
+                            <label for="password">Password</label>
+                            <input type="password" name="password" id="password" class="form-control" placeholder="Password">
                         </div>
                     </div>
                     <div class="modal-footer">

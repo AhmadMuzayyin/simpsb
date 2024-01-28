@@ -3,7 +3,7 @@
 
     <!-- Sidebar - Brand -->
     <a class="sidebar-brand d-flex align-items-center justify-content-center" href="{{ route('dashboard') }}">
-        <div class="sidebar-brand-icon rotate-n-15">
+        <div class="sidebar-brand-icon">
             {{-- <i class="fas fa-laugh-wink"></i> --}}
             <img src="{{ url('logo.png') }}" alt="logo" width="50">
         </div>
@@ -77,26 +77,28 @@
         <!-- Divider -->
         <hr class="sidebar-divider">
         <!-- Nav Item - Pages Collapse Menu -->
-        <li class="nav-item {{ request()->routeIs('dashboard') ? 'active' : '' }}">
-            <a class="nav-link" href="">
+        <li class="nav-item {{ request()->routeIs('siswa.pendaftaran.*') ? 'active' : '' }}">
+            <a class="nav-link" href="{{ route('siswa.pendaftaran.index') }}">
                 <i class="fas fa-tablet"></i>
                 <span>Data Pendaftaran</span>
             </a>
         </li>
         <!-- Nav Item - Pages Collapse Menu -->
-        <li class="nav-item {{ request()->routeIs('dashboard') ? 'active' : '' }}">
-            <a class="nav-link" href="">
+        <li class="nav-item {{ request()->routeIs('siswa.dokumen.*') ? 'active' : '' }}">
+            <a class="nav-link" href="{{ route('siswa.dokumen.index') }}">
                 <i class="fas fa-upload"></i>
                 <span>Upload Dokumen</span>
             </a>
         </li>
-        <!-- Nav Item - Pages Collapse Menu -->
-        <li class="nav-item {{ request()->routeIs('dashboard') ? 'active' : '' }}">
-            <a class="nav-link" href="">
-                <i class="fas fa-arrows-rotate"></i>
-                <span>Daftar Ulang</span>
-            </a>
-        </li>
+        @if ($siswa_sidebar->status == 'Diterima')
+            <!-- Nav Item - Pages Collapse Menu -->
+            <li class="nav-item {{ request()->routeIs('siswa.daftar_ulang.*') ? 'active' : '' }}">
+                <a class="nav-link" href="{{ route('siswa.daftar_ulang.index') }}">
+                    <i class="fas fa-arrows-rotate"></i>
+                    <span>Daftar Ulang</span>
+                </a>
+            </li>
+        @endif
     @endif
 </ul>
 <!-- End of Sidebar -->

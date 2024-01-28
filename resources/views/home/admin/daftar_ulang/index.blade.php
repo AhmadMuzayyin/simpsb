@@ -38,7 +38,7 @@
                                 @foreach ($daftar_ulang as $item)
                                     <tr>
                                         <td>{{ $loop->iteration }}</td>
-                                        <td>{{ $item->siswa->nama }}</td>
+                                        <td>{{ $item->siswa->user->name }}</td>
                                         <td>{{ $item->tgl_daftar_ulang }}</td>
                                         <td>
                                             <img src="{{ url($item->bukti_bayar) }}" alt="bukti bayar" width="100" class="img-fluid">

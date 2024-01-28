@@ -28,5 +28,12 @@ class DatabaseSeeder extends Seeder
                 'terisi' => 0,
             ]);
         }
+        \App\Models\Pendaftaran::create([
+            'mulai' => '2024-01-81',
+            'berakhir' => now()->addMonth(3),
+            'tahun_akademik' => date('Y'),
+        ]);
+        \App\Models\Category::factory(10)->create();
+        \App\Models\Post::factory(10)->create();
     }
 }

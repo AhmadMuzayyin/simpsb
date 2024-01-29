@@ -29,7 +29,7 @@ class DatabaseSeeder extends Seeder
             ]);
         }
         \App\Models\Pendaftaran::create([
-            'mulai' => '2024-01-81',
+            'mulai' => now(),
             'berakhir' => now()->addMonth(3),
             'tahun_akademik' => date('Y'),
         ]);

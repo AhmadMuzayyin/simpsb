@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.2.1
+-- version 5.1.1deb5ubuntu1
 -- https://www.phpmyadmin.net/
 --
--- Host: 127.0.0.1
--- Generation Time: Jan 29, 2024 at 03:33 AM
--- Server version: 10.4.32-MariaDB
--- PHP Version: 8.1.25
+-- Host: localhost:3306
+-- Waktu pembuatan: 26 Jun 2024 pada 08.55
+-- Versi server: 10.6.18-MariaDB-0ubuntu0.22.04.1
+-- Versi PHP: 8.1.2-1ubuntu2.18
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -24,7 +24,7 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
--- Table structure for table `categories`
+-- Struktur dari tabel `categories`
 --
 
 CREATE TABLE `categories` (
@@ -35,7 +35,7 @@ CREATE TABLE `categories` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
--- Dumping data for table `categories`
+-- Dumping data untuk tabel `categories`
 --
 
 INSERT INTO `categories` (`id`, `nama`, `created_at`, `updated_at`) VALUES
@@ -53,7 +53,7 @@ INSERT INTO `categories` (`id`, `nama`, `created_at`, `updated_at`) VALUES
 -- --------------------------------------------------------
 
 --
--- Table structure for table `daftar_ulangs`
+-- Struktur dari tabel `daftar_ulangs`
 --
 
 CREATE TABLE `daftar_ulangs` (
@@ -66,10 +66,17 @@ CREATE TABLE `daftar_ulangs` (
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
+--
+-- Dumping data untuk tabel `daftar_ulangs`
+--
+
+INSERT INTO `daftar_ulangs` (`id`, `siswa_id`, `tgl_daftar_ulang`, `bukti_bayar`, `status`, `created_at`, `updated_at`) VALUES
+(2, 2, '2024-06-01', 'storage/bukti_bayar/X51JDT4wHZca5C8xG8ak4q8KjrIyR3BRBHBPzX4z.jpg', 'Sudah Bayar', '2024-05-31 19:58:12', '2024-05-31 19:58:12');
+
 -- --------------------------------------------------------
 
 --
--- Table structure for table `dokumen_siswas`
+-- Struktur dari tabel `dokumen_siswas`
 --
 
 CREATE TABLE `dokumen_siswas` (
@@ -83,10 +90,17 @@ CREATE TABLE `dokumen_siswas` (
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
+--
+-- Dumping data untuk tabel `dokumen_siswas`
+--
+
+INSERT INTO `dokumen_siswas` (`id`, `siswa_id`, `file_pendukung`, `file_kk`, `file_akta`, `file_foto`, `created_at`, `updated_at`) VALUES
+(2, 2, 'storage/dokumen/fKYGgHv1S3BErHBmUusYPrH7Uu9tyYUDzbFx3w0H.jpg', 'storage/dokumen/zVwKg0zJ1v9onV3rTkhBJtah9FFDh2VJ5ggkNcKH.jpg', 'storage/dokumen/ibBjA2Eg6ZU1j5KHSDQ8VfnPZImE9aYxJK4dPB5d.jpg', 'storage/dokumen/Zq2lUmVIaQ7XdyXVs2rnKPG4UncfccaTIJ6EVKCk.jpg', '2024-05-31 19:57:35', '2024-05-31 19:57:35');
+
 -- --------------------------------------------------------
 
 --
--- Table structure for table `failed_jobs`
+-- Struktur dari tabel `failed_jobs`
 --
 
 CREATE TABLE `failed_jobs` (
@@ -102,7 +116,7 @@ CREATE TABLE `failed_jobs` (
 -- --------------------------------------------------------
 
 --
--- Table structure for table `galeris`
+-- Struktur dari tabel `galeris`
 --
 
 CREATE TABLE `galeris` (
@@ -115,10 +129,17 @@ CREATE TABLE `galeris` (
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
+--
+-- Dumping data untuk tabel `galeris`
+--
+
+INSERT INTO `galeris` (`id`, `kategori`, `judul`, `deskripsi`, `gambar`, `created_at`, `updated_at`) VALUES
+(1, 'Belajar', 'werwr', '53qqeqeq', 'storage/galeri/WoCibeQKuMnTOgOzZIMz2lngkqasUjj3XO1v81NR.png', '2024-05-27 23:14:45', '2024-05-27 23:14:45');
+
 -- --------------------------------------------------------
 
 --
--- Table structure for table `kelas`
+-- Struktur dari tabel `kelas`
 --
 
 CREATE TABLE `kelas` (
@@ -131,18 +152,17 @@ CREATE TABLE `kelas` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
--- Dumping data for table `kelas`
+-- Dumping data untuk tabel `kelas`
 --
 
 INSERT INTO `kelas` (`id`, `nama`, `maksimal`, `terisi`, `created_at`, `updated_at`) VALUES
-(1, 'X', 50, 0, '2024-01-28 19:31:21', '2024-01-28 19:31:21'),
 (2, 'XI', 50, 0, '2024-01-28 19:31:21', '2024-01-28 19:31:21'),
 (3, 'XII', 50, 0, '2024-01-28 19:31:21', '2024-01-28 19:31:21');
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `migrations`
+-- Struktur dari tabel `migrations`
 --
 
 CREATE TABLE `migrations` (
@@ -152,7 +172,7 @@ CREATE TABLE `migrations` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
--- Dumping data for table `migrations`
+-- Dumping data untuk tabel `migrations`
 --
 
 INSERT INTO `migrations` (`id`, `migration`, `batch`) VALUES
@@ -173,7 +193,7 @@ INSERT INTO `migrations` (`id`, `migration`, `batch`) VALUES
 -- --------------------------------------------------------
 
 --
--- Table structure for table `password_reset_tokens`
+-- Struktur dari tabel `password_reset_tokens`
 --
 
 CREATE TABLE `password_reset_tokens` (
@@ -185,7 +205,7 @@ CREATE TABLE `password_reset_tokens` (
 -- --------------------------------------------------------
 
 --
--- Table structure for table `pendaftarans`
+-- Struktur dari tabel `pendaftarans`
 --
 
 CREATE TABLE `pendaftarans` (
@@ -198,16 +218,16 @@ CREATE TABLE `pendaftarans` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
--- Dumping data for table `pendaftarans`
+-- Dumping data untuk tabel `pendaftarans`
 --
 
 INSERT INTO `pendaftarans` (`id`, `mulai`, `berakhir`, `tahun_akademik`, `created_at`, `updated_at`) VALUES
-(1, '2024-01-29', '2024-04-29', '2024', '2024-01-28 19:31:21', '2024-01-28 19:31:21');
+(1, '2024-01-29', '2024-06-30', 2024, '2024-01-28 19:31:21', '2024-05-31 19:46:18');
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `personal_access_tokens`
+-- Struktur dari tabel `personal_access_tokens`
 --
 
 CREATE TABLE `personal_access_tokens` (
@@ -226,7 +246,7 @@ CREATE TABLE `personal_access_tokens` (
 -- --------------------------------------------------------
 
 --
--- Table structure for table `posts`
+-- Struktur dari tabel `posts`
 --
 
 CREATE TABLE `posts` (
@@ -241,11 +261,11 @@ CREATE TABLE `posts` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
--- Dumping data for table `posts`
+-- Dumping data untuk tabel `posts`
 --
 
 INSERT INTO `posts` (`id`, `category_id`, `slug`, `judul`, `isi`, `gambar`, `created_at`, `updated_at`) VALUES
-(1, 9, 'mollitia-et-suscipit-nisi-necessitatibus-similique-ab', 'Ab rerum soluta modi aperiam dolore officiis laboriosam.', 'Accusantium sit doloremque dolore. Enim quia vel id et natus. Dolorem fuga asperiores quasi enim ex debitis. Repudiandae asperiores incidunt atque similique ipsa animi aliquam ad.\n\nRerum sunt et autem voluptatem nisi. Nulla voluptatem tenetur molestiae nisi voluptatibus. Nam nemo et vel ipsa ducimus.\n\nAdipisci et est qui culpa labore. Amet necessitatibus minus quasi. Velit ipsam numquam reprehenderit alias. Veniam amet assumenda aut repellendus harum sit qui.\n\nUt ab voluptatem dolor possimus vel aspernatur. Occaecati dolor ducimus accusamus blanditiis et unde et. Molestias ut cum eveniet exercitationem minus voluptatem.\n\nAut quod eligendi ipsum explicabo id laborum. Architecto velit et facilis.', 'https://via.placeholder.com/640x480.png/007766?text=reprehenderit', '2024-01-28 19:31:22', '2024-01-28 19:31:22'),
+(1, 9, 'mollitia-et-suscipit-nisi-necessitatibus-similique-ab', 'Belajar Laravel', 'Laravel Adalah bla bla bla', 'storage/info/9JMfJe7CEpGkE9ghM8Gll6ceQ8UGVqy5jFeK7zsQ.png', '2024-01-28 19:31:22', '2024-05-27 23:50:52'),
 (2, 6, 'eius-a-asperiores-tempore-aut-aut-non', 'Qui est at ut quam quibusdam blanditiis quia.', 'Sed voluptas nobis cumque facere quos aut. Unde velit ut assumenda consequatur occaecati eos.\n\nRecusandae aut consectetur nostrum omnis repellendus deleniti. Impedit porro asperiores tempora accusantium saepe ut ea. Ea ut est quas occaecati et. Odio aspernatur sunt sit et. Maiores sed doloremque molestias laudantium.\n\nDignissimos iure voluptate quia rerum omnis est provident. Aperiam dolores laboriosam deserunt et. Nam reprehenderit tenetur et aperiam sit quo commodi. Odit natus sit qui sed et.\n\nAssumenda enim fugit occaecati aut ut voluptatem beatae. Incidunt repellendus repellendus in nihil. Odit temporibus omnis facilis maxime similique esse unde. Tempora officia dolore unde voluptatibus nesciunt.\n\nEarum sit eum consequatur tempore et quaerat placeat. Nesciunt ea quaerat quo ipsa deserunt possimus. Id et sequi vero maiores vero. Modi fuga error consequatur sunt tempora nam pariatur.', 'https://via.placeholder.com/640x480.png/0088aa?text=suscipit', '2024-01-28 19:31:22', '2024-01-28 19:31:22'),
 (3, 7, 'quia-deserunt-est-recusandae-est-a-quod-sit', 'Quia sunt provident facilis et id et dolore.', 'Iure consequatur nobis quo ut. Laborum ipsam exercitationem possimus ut iste aliquam suscipit. Aut a aut et quos harum iure qui.\n\nVitae architecto facere voluptates in et voluptates fuga. Molestiae accusamus rerum esse amet provident. Voluptas voluptatem veniam eaque in dolorem ratione ea.\n\nIn officiis praesentium odio sed. Est qui ipsa asperiores et earum dolorem. Sunt debitis itaque adipisci.\n\nQuis numquam saepe eaque. Quia explicabo labore in ut sunt in consequatur. Qui quia voluptas et optio animi autem. In consequatur cum quam consequatur qui quidem sunt.\n\nMolestiae rerum voluptate quia laborum recusandae rem. Reiciendis voluptatem placeat mollitia ut suscipit sed.', 'https://via.placeholder.com/640x480.png/00ee44?text=iusto', '2024-01-28 19:31:22', '2024-01-28 19:31:22'),
 (4, 1, 'officiis-quidem-eligendi-corporis-cumque', 'Possimus quam est tenetur modi possimus in et.', 'Sit velit sint quia similique. Optio vitae dolores aspernatur qui numquam esse recusandae.\n\nVeritatis dolorum voluptas aspernatur laudantium tempore. Qui consequatur autem et ea in deserunt vitae. Dignissimos sunt et autem nesciunt libero est libero. Sit sequi et velit explicabo eius.\n\nOptio omnis hic aliquam. Dolore unde est excepturi suscipit corporis voluptas reprehenderit. Ullam quis qui aliquid. Mollitia quibusdam autem qui voluptatem modi saepe.\n\nAtque occaecati perferendis cum natus quod quidem. Odio mollitia reiciendis atque molestiae rerum. Cum expedita dignissimos delectus qui odio sapiente. Sit repudiandae aut sint enim optio hic et. Accusamus minima vel tenetur fuga.\n\nHarum rerum accusantium tempora eum et. Quia qui non aspernatur minima. Id possimus eum aliquid cum qui.', 'https://via.placeholder.com/640x480.png/00ccaa?text=praesentium', '2024-01-28 19:31:22', '2024-01-28 19:31:22'),
@@ -259,7 +279,7 @@ INSERT INTO `posts` (`id`, `category_id`, `slug`, `judul`, `isi`, `gambar`, `cre
 -- --------------------------------------------------------
 
 --
--- Table structure for table `siswas`
+-- Struktur dari tabel `siswas`
 --
 
 CREATE TABLE `siswas` (
@@ -304,25 +324,17 @@ CREATE TABLE `siswas` (
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
--- --------------------------------------------------------
-
 --
--- Table structure for table `status_pendaftarans`
+-- Dumping data untuk tabel `siswas`
 --
 
-CREATE TABLE `status_pendaftarans` (
-  `id` bigint(20) UNSIGNED NOT NULL,
-  `user_id` bigint(20) UNSIGNED NOT NULL,
-  `pendaftaran_id` bigint(20) UNSIGNED NOT NULL,
-  `status` enum('pending','diterima','ditolak') NOT NULL,
-  `created_at` timestamp NULL DEFAULT NULL,
-  `updated_at` timestamp NULL DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+INSERT INTO `siswas` (`id`, `user_id`, `kelas_id`, `pendaftaran_id`, `nama_panggilan`, `jenis_kelamin`, `tempat_lahir`, `tanggal_lahir`, `golongan_darah`, `agama`, `alamat_asal`, `alamat_sekarang`, `whatsapp`, `anak_ke`, `jumlah_saudara`, `bahasa`, `sekolah_asal`, `ijazah_terakhir`, `nisn`, `nama_ayah`, `pekerjaan_ayah`, `kondisi_ayah`, `penghasilan_ayah`, `telpon_ayah`, `nama_ibu`, `pekerjaan_ibu`, `kondisi_ibu`, `penghasilan_ibu`, `telpon_ibu`, `alamat_ortu`, `nama_wali`, `pekerjaan_wali`, `kondisi_wali`, `penghasilan_wali`, `alamat_wali`, `telpon_wali`, `status`, `created_at`, `updated_at`) VALUES
+(2, 3, 2, 1, 'Ahmad', 'Laki-Laki', 'Sumenep', '2024-06-01', '0', 'Islam', 'Sumenep', 'Sumenep', 6287716408127, 3, 3, 'Indonesia', 'MA Al-Ibrohimy', 'MTS', '0057435024', 'Ali Mufi', 'Petani', 'Sehat', 100, 12345, 'Nasibah', 'Petani', 'Sehat', 100, 12345, 'Sumenep', NULL, NULL, NULL, NULL, NULL, NULL, 'Diterima', '2024-05-31 19:47:22', '2024-05-31 19:52:10');
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `users`
+-- Struktur dari tabel `users`
 --
 
 CREATE TABLE `users` (
@@ -337,75 +349,77 @@ CREATE TABLE `users` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
--- Dumping data for table `users`
+-- Dumping data untuk tabel `users`
 --
 
 INSERT INTO `users` (`id`, `name`, `email`, `password`, `remember_token`, `level`, `created_at`, `updated_at`) VALUES
-(1, 'Administrator', 'admin@admin.com', '$2y$12$elYUZUIfeDfxcv6LW4kyauNS/j0RI5hJH6SQDfaQqY7V1Pp5nU8x2', NULL, 'admin', '2024-01-28 19:31:21', '2024-01-28 19:31:21');
+(1, 'Administrator', 'admin@admin.com', '$2y$12$elYUZUIfeDfxcv6LW4kyauNS/j0RI5hJH6SQDfaQqY7V1Pp5nU8x2', NULL, 'admin', '2024-01-28 19:31:21', '2024-01-28 19:31:21'),
+(3, 'Ahmad Muzayyin', 'muzayyin@gmail.com', '$2y$12$CXnaTEkyd4nPKjfkHOyHEu27MZJ71rOjuRQY/D/ZdYBQhYvjZ4/K6', NULL, 'siswa', '2024-05-31 19:44:43', '2024-05-31 19:44:43'),
+(4, 'Istifa', 'istifa@gmail.com', '$2y$12$41GpIwYNyWpSEKYLpy/mDOVEVI7TN.3Q/okbkpUSSAIwQoA.jggxK', NULL, 'siswa', '2024-05-31 21:51:54', '2024-05-31 21:51:54');
 
 --
 -- Indexes for dumped tables
 --
 
 --
--- Indexes for table `categories`
+-- Indeks untuk tabel `categories`
 --
 ALTER TABLE `categories`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indexes for table `daftar_ulangs`
+-- Indeks untuk tabel `daftar_ulangs`
 --
 ALTER TABLE `daftar_ulangs`
   ADD PRIMARY KEY (`id`),
   ADD KEY `daftar_ulangs_siswa_id_foreign` (`siswa_id`);
 
 --
--- Indexes for table `dokumen_siswas`
+-- Indeks untuk tabel `dokumen_siswas`
 --
 ALTER TABLE `dokumen_siswas`
   ADD PRIMARY KEY (`id`),
   ADD KEY `dokumen_siswas_siswa_id_foreign` (`siswa_id`);
 
 --
--- Indexes for table `failed_jobs`
+-- Indeks untuk tabel `failed_jobs`
 --
 ALTER TABLE `failed_jobs`
   ADD PRIMARY KEY (`id`),
   ADD UNIQUE KEY `failed_jobs_uuid_unique` (`uuid`);
 
 --
--- Indexes for table `galeris`
+-- Indeks untuk tabel `galeris`
 --
 ALTER TABLE `galeris`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indexes for table `kelas`
+-- Indeks untuk tabel `kelas`
 --
 ALTER TABLE `kelas`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indexes for table `migrations`
+-- Indeks untuk tabel `migrations`
 --
 ALTER TABLE `migrations`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indexes for table `password_reset_tokens`
+-- Indeks untuk tabel `password_reset_tokens`
 --
 ALTER TABLE `password_reset_tokens`
   ADD PRIMARY KEY (`email`);
 
 --
--- Indexes for table `pendaftarans`
+-- Indeks untuk tabel `pendaftarans`
 --
 ALTER TABLE `pendaftarans`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indexes for table `personal_access_tokens`
+-- Indeks untuk tabel `personal_access_tokens`
 --
 ALTER TABLE `personal_access_tokens`
   ADD PRIMARY KEY (`id`),
@@ -413,7 +427,7 @@ ALTER TABLE `personal_access_tokens`
   ADD KEY `personal_access_tokens_tokenable_type_tokenable_id_index` (`tokenable_type`,`tokenable_id`);
 
 --
--- Indexes for table `posts`
+-- Indeks untuk tabel `posts`
 --
 ALTER TABLE `posts`
   ADD PRIMARY KEY (`id`),
@@ -421,7 +435,7 @@ ALTER TABLE `posts`
   ADD KEY `posts_category_id_foreign` (`category_id`);
 
 --
--- Indexes for table `siswas`
+-- Indeks untuk tabel `siswas`
 --
 ALTER TABLE `siswas`
   ADD PRIMARY KEY (`id`),
@@ -430,138 +444,117 @@ ALTER TABLE `siswas`
   ADD KEY `siswas_pendaftaran_id_foreign` (`pendaftaran_id`);
 
 --
--- Indexes for table `status_pendaftarans`
---
-ALTER TABLE `status_pendaftarans`
-  ADD PRIMARY KEY (`id`),
-  ADD KEY `status_pendaftarans_user_id_foreign` (`user_id`),
-  ADD KEY `status_pendaftarans_pendaftaran_id_foreign` (`pendaftaran_id`);
-
---
--- Indexes for table `users`
+-- Indeks untuk tabel `users`
 --
 ALTER TABLE `users`
   ADD PRIMARY KEY (`id`),
   ADD UNIQUE KEY `users_email_unique` (`email`);
 
 --
--- AUTO_INCREMENT for dumped tables
+-- AUTO_INCREMENT untuk tabel yang dibuang
 --
 
 --
--- AUTO_INCREMENT for table `categories`
+-- AUTO_INCREMENT untuk tabel `categories`
 --
 ALTER TABLE `categories`
   MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 
 --
--- AUTO_INCREMENT for table `daftar_ulangs`
+-- AUTO_INCREMENT untuk tabel `daftar_ulangs`
 --
 ALTER TABLE `daftar_ulangs`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
--- AUTO_INCREMENT for table `dokumen_siswas`
+-- AUTO_INCREMENT untuk tabel `dokumen_siswas`
 --
 ALTER TABLE `dokumen_siswas`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
--- AUTO_INCREMENT for table `failed_jobs`
+-- AUTO_INCREMENT untuk tabel `failed_jobs`
 --
 ALTER TABLE `failed_jobs`
   MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT for table `galeris`
+-- AUTO_INCREMENT untuk tabel `galeris`
 --
 ALTER TABLE `galeris`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
--- AUTO_INCREMENT for table `kelas`
+-- AUTO_INCREMENT untuk tabel `kelas`
 --
 ALTER TABLE `kelas`
   MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
--- AUTO_INCREMENT for table `migrations`
+-- AUTO_INCREMENT untuk tabel `migrations`
 --
 ALTER TABLE `migrations`
   MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
 
 --
--- AUTO_INCREMENT for table `pendaftarans`
+-- AUTO_INCREMENT untuk tabel `pendaftarans`
 --
 ALTER TABLE `pendaftarans`
   MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
--- AUTO_INCREMENT for table `personal_access_tokens`
+-- AUTO_INCREMENT untuk tabel `personal_access_tokens`
 --
 ALTER TABLE `personal_access_tokens`
   MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT for table `posts`
+-- AUTO_INCREMENT untuk tabel `posts`
 --
 ALTER TABLE `posts`
   MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 
 --
--- AUTO_INCREMENT for table `siswas`
+-- AUTO_INCREMENT untuk tabel `siswas`
 --
 ALTER TABLE `siswas`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
--- AUTO_INCREMENT for table `status_pendaftarans`
---
-ALTER TABLE `status_pendaftarans`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
-
---
--- AUTO_INCREMENT for table `users`
+-- AUTO_INCREMENT untuk tabel `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
--- Constraints for dumped tables
+-- Ketidakleluasaan untuk tabel pelimpahan (Dumped Tables)
 --
 
 --
--- Constraints for table `daftar_ulangs`
+-- Ketidakleluasaan untuk tabel `daftar_ulangs`
 --
 ALTER TABLE `daftar_ulangs`
   ADD CONSTRAINT `daftar_ulangs_siswa_id_foreign` FOREIGN KEY (`siswa_id`) REFERENCES `siswas` (`id`) ON DELETE CASCADE;
 
 --
--- Constraints for table `dokumen_siswas`
+-- Ketidakleluasaan untuk tabel `dokumen_siswas`
 --
 ALTER TABLE `dokumen_siswas`
   ADD CONSTRAINT `dokumen_siswas_siswa_id_foreign` FOREIGN KEY (`siswa_id`) REFERENCES `siswas` (`id`) ON DELETE CASCADE;
 
 --
--- Constraints for table `posts`
+-- Ketidakleluasaan untuk tabel `posts`
 --
 ALTER TABLE `posts`
   ADD CONSTRAINT `posts_category_id_foreign` FOREIGN KEY (`category_id`) REFERENCES `categories` (`id`) ON DELETE CASCADE;
 
 --
--- Constraints for table `siswas`
+-- Ketidakleluasaan untuk tabel `siswas`
 --
 ALTER TABLE `siswas`
   ADD CONSTRAINT `siswas_kelas_id_foreign` FOREIGN KEY (`kelas_id`) REFERENCES `kelas` (`id`) ON DELETE CASCADE,
   ADD CONSTRAINT `siswas_pendaftaran_id_foreign` FOREIGN KEY (`pendaftaran_id`) REFERENCES `pendaftarans` (`id`) ON DELETE CASCADE,
   ADD CONSTRAINT `siswas_user_id_foreign` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`) ON DELETE CASCADE;
-
---
--- Constraints for table `status_pendaftarans`
---
-ALTER TABLE `status_pendaftarans`
-  ADD CONSTRAINT `status_pendaftarans_pendaftaran_id_foreign` FOREIGN KEY (`pendaftaran_id`) REFERENCES `pendaftarans` (`id`) ON DELETE CASCADE,
-  ADD CONSTRAINT `status_pendaftarans_user_id_foreign` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`) ON DELETE CASCADE;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

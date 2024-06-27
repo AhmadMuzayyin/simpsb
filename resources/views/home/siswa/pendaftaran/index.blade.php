@@ -114,9 +114,15 @@
                             </div>
                             <div class="col">
                                 <label for="agama">Agama</label>
-                                <input type="text" class="form-control @error('agama') is-invalid @enderror"
-                                    name="agama" id="agama" placeholder="Agama"
-                                    value="{{ isset($siswa) ? $siswa->agama : old('agama') }}">
+                                <select class="form-control @error('agama') is-invalid @enderror" name="agama"
+                                    id="agama" placeholder="Agama">
+                                    <option value="" selected disabled>--- Pilih Agama ---</option>
+                                    <option value="Islam"
+                                        {{ isset($siswa) ? ($siswa->agama == 'Islam' ? 'selected' : '') : '' }}>Islam</option>
+                                    <option value="Kristen">Kristen</option>
+                                    <option value="Budha">Budha</option>
+                                    <option value="Konghucu">Konghucu</option>
+                                </select>
                                 @error('agama')
                                     <div class="invalid-feedback">
                                         {{ $message }}
@@ -450,7 +456,8 @@
                             <li>Ketika tombol simpan ditekan maka data tidak dapat dirubah. Kecuali dikonfirmasi untuk
                                 dirubah oleh admin</li>
                         </ul>
-                        <button type="submit" class="btn btn-{{ isset($siswa) ? 'warning' : 'primary' }} mt-3">{{ isset($siswa) ? 'Update Data' : 'Simpan' }}</button>
+                        <button type="submit"
+                            class="btn btn-{{ isset($siswa) ? 'warning' : 'primary' }} mt-3">{{ isset($siswa) ? 'Update Data' : 'Simpan' }}</button>
                     </form>
                 </div>
             </div>

@@ -36,6 +36,10 @@ class SiswaUploadDokumenController extends Controller
                         'file_kk' => 'storage/dokumen/' . $request->file('file_kk')->hashName(),
                         'file_akta' => 'storage/dokumen/' . $request->file('file_akta')->hashName(),
                         'file_foto' => 'storage/dokumen/' . $request->file('file_foto')->hashName(),
+                        'status' => 'Menunggu Konfirmasi'
+                    ]);
+                    $siswa->update([
+                        'status' => 'Menunggu Konfirmasi'
                     ]);
                 } else {
                     DokumenSiswa::create([

@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\DokumenSiswa;
 use App\Models\Kelas;
 use App\Models\Siswa;
 use Illuminate\Http\Request;
@@ -47,8 +48,32 @@ class AdminSiswaBaruController extends Controller
             return redirect()->back()->with('error', 'Data Siswa gagal dihapus');
         }
     }
+    public function perbaiki_data(Siswa $siswa)
+    {
+        try {
+            $siswa->update([
+                'status' => 'Perbaiki Data'
+            ]);
+            return redirect()->back()->with('succes', 'Data siswa berhasil diubah');
+        } catch (\Throwable $th) {
+            return redirect()->back()->with('error', 'Data siswa gagal diubah');
+        }
+    }
+    public function perbaiki_dokumen(Siswa $siswa)
+    {
+        try {
+            $siswa->update([
+                'status' => 'Perbaiki Dokumen'
+            ]);
+            DokumenSiswa::where('siswa_id', $siswa->id)->update([
+                'status' => 'Perbaiki Dokumen'
+            ]);
+            return redirect()->back()->with('succes', 'Data siswa berhasil diubah');
+        } catch (\Throwable $th) {
+            return redirect()->back()->with('error', 'Data siswa gagal diubah');
+        }
+    }
     public function download(Siswa $siswa)
     {
-
     }
 }

@@ -62,28 +62,69 @@
                                         <td>{{ $item->status }}</td>
                                         <td>
                                             @if ($item->status == 'Menunggu Konfirmasi')
-                                                <a href="{{ route('admin.siswa.confirmation', $item->id) }}">
-                                                    <button class="btn btn-success btn-circle btn-sm"><i
-                                                            class="fas fa-check"></i></button>
+                                                <a href="{{ route('admin.siswa.confirmation', $item->id) }}"
+                                                    class="text-decoration-none" title="Diterima">
+                                                    <button class="btn btn-success btn-circle btn-sm">
+                                                        <i class="fas fa-check"></i>
+                                                    </button>
                                                 </a>
-                                                <a href="{{ route('admin.siswa.notconfirm', $item->id) }}">
-                                                    <button class="btn btn-warning btn-circle btn-sm"><i
-                                                            class="fas fa-x"></i></button>
+                                                <a href="{{ route('admin.siswa.notconfirm', $item->id) }}"
+                                                    class="text-decoration-none" title="Ditolak">
+                                                    <button class="btn btn-warning btn-circle btn-sm">
+                                                        <i class="fas fa-x"></i>
+                                                    </button>
                                                 </a>
+                                                <a href="{{ route('admin.siswa.perbaiki_data', $item->id) }}"
+                                                    class="text-decoration-none" title="Perbaiki Data">
+                                                    <button class="btn btn-info btn-circle btn-sm">
+                                                        <i class="fas fa-pencil"></i>
+                                                    </button>
+                                                </a>
+                                                @isset($item->dokumen_siswa)
+                                                    @if ($item->dokumen_siswa->status != 'Perbaiki Dokumen')
+                                                        <a href="{{ route('admin.siswa.perbaiki_dokumen', $item->id) }}"
+                                                            class="text-decoration-none" title="Perbaiki Dokumen">
+                                                            <button class="btn btn-warning btn-circle btn-sm">
+                                                                <i class="fa-solid fa-file-signature"></i>
+                                                            </button>
+                                                        </a>
+                                                    @endif
+                                                @endisset
                                             @endif
                                             @if ($item->status == 'Diterima')
-                                                <a href="{{ route('admin.siswa.notconfirm', $item->id) }}">
-                                                    <button class="btn btn-warning btn-circle btn-sm"><i
-                                                            class="fas fa-x"></i></button>
+                                                <a href="{{ route('admin.siswa.notconfirm', $item->id) }}"
+                                                    class="text-decoration-none">
+                                                    <button class="btn btn-warning btn-circle btn-sm">
+                                                        <i class="fas fa-x"></i>
+                                                    </button>
                                                 </a>
                                             @endif
                                             @if ($item->status == 'Tidak Diterima')
-                                                <a href="{{ route('admin.siswa.confirmation', $item->id) }}">
-                                                    <button class="btn btn-success btn-circle btn-sm"><i
-                                                            class="fas fa-check"></i></button>
+                                                <a href="{{ route('admin.siswa.confirmation', $item->id) }}"
+                                                    class="text-decoration-none">
+                                                    <button class="btn btn-success btn-circle btn-sm">
+                                                        <i class="fas fa-check"></i>
+                                                    </button>
                                                 </a>
+                                                <a href="{{ route('admin.siswa.perbaiki_data', $item->id) }}"
+                                                    class="text-decoration-none">
+                                                    <button class="btn btn-info btn-circle btn-sm">
+                                                        <i class="fas fa-pencil"></i>
+                                                    </button>
+                                                </a>
+                                                @isset($item->dokumen_siswa)
+                                                    @if ($item->dokumen_siswa->status != 'Perbaiki Data')
+                                                        <a href="{{ route('admin.siswa.perbaiki_dokumen', $item->id) }}"
+                                                            class="text-decoration-none">
+                                                            <button class="btn btn-warning btn-circle btn-sm">
+                                                                <i class="fa-solid fa-file-signature"></i>
+                                                            </button>
+                                                        </a>
+                                                    @endif
+                                                @endisset
                                             @endif
-                                            <a href="{{ route('admin.kelas.destroy', $item->id) }}">
+                                            <a
+                                                href="{{ route('admin.kelas.destroy', $item->id) }}"class="text-decoration-none">
                                                 <button type="button" class="btn btn-danger btn-circle btn-sm"
                                                     onclick="confirm('Anda yakin untuk menghapus data ini?')">
                                                     <i class="fas fa-trash"></i>

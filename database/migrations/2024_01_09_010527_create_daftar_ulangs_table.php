@@ -16,7 +16,6 @@ return new class extends Migration
             $table->id();
             $table->foreignIdFor(Siswa::class)->constrained()->cascadeOnDelete();
             $table->date('tgl_daftar_ulang');
-            $table->string('bukti_bayar')->nullable();
             $table->enum('status', ['Belum Bayar', 'Sudah Bayar']);
             $table->timestamps();
         });

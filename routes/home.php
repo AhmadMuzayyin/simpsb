@@ -34,6 +34,8 @@ Route::middleware(['auth'])->group(function () {
             Route::get('/siswa', 'index')->name('siswa.index');
             Route::get('/siswa/{siswa}/confirmation', 'confirmation')->name('siswa.confirmation');
             Route::get('/siswa/{siswa}/notconfirm', 'notconfirm')->name('siswa.notconfirm');
+            Route::get('/siswa/{siswa}/perbaiki_data', 'perbaiki_data')->name('siswa.perbaiki_data');
+            Route::get('/siswa/{siswa}/perbaiki_dokumen', 'perbaiki_dokumen')->name('siswa.perbaiki_dokumen');
             Route::get('/siswa/{siswa}/download', 'download')->name('siswa.download');
         });
         Route::controller(AdminDaftarUlangController::class)->group(function () {
@@ -66,6 +68,9 @@ Route::middleware(['auth'])->group(function () {
         Route::controller(SiswaPendaftaranController::class)->group(function () {
             Route::get('/pendaftaran', 'index')->name('pendaftaran.index');
             Route::post('/pendaftaran/store', 'store')->name('pendaftaran.store');
+            Route::post('/pendaftaran/biodata', 'biodata')->name('pendaftaran.biodata');
+            Route::post('/pendaftaran/wali', 'wali')->name('pendaftaran.wali');
+            Route::post('/pendaftaran/sekolah', 'sekolah')->name('pendaftaran.sekolah');
             Route::post('/pendaftaran/{siswa}/update', 'update')->name('pendaftaran.update');
             Route::get('/pendaftaran/{siswa}/destroy', 'destroy')->name('pendaftaran.destroy');
         });

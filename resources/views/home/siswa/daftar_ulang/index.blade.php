@@ -24,15 +24,12 @@
                                     </tr>
                                     <tr>
                                         <td>Status Daftar Ulang</td>
-                                        <td>{{ $daftar_ulang->status }}</td>
+                                        <td>Telah Melakukan Daftar Ulang</td>
                                     </tr>
                                     <tr>
-                                        <td>Bukti Bayar</td>
+                                        <td>Status Pembayar</td>
                                         <td>
-                                            @if ($daftar_ulang->bukti_bayar)
-                                                <img src="{{ url($daftar_ulang->bukti_bayar) }}" alt="bukti bayar"
-                                                    width="100" class="img-fluid">
-                                            @endif
+                                            {{ $daftar_ulang->status }}
                                         </td>
                                     </tr>
                                     <tr>
@@ -43,10 +40,14 @@
                             </div>
                         @endif
                         <div class="form-group">
-                            <label for="bukti_bayar">Bukti Bayar</label>
-                            <input type="file" name="bukti_bayar" id="bukti_bayar"
-                                class="form-control @error('bukti_bayar') is-invalid @enderror">
-                            @error('bukti_bayar')
+                            <label for="status">Status Bayar</label>
+                            <select name="status" id="status"
+                                class="form-control @error('status') is-invalid @enderror">
+                                <option value="" selected disabled>Pilih Status</option>
+                                <option value="Belum Bayar">Belum Bayar</option>
+                                <option value="Sudah Bayar">Sudah Bayar</option>
+                            </select>
+                            @error('status')
                                 <div class="invalid-feedback">
                                     {{ $message }}
                                 </div>

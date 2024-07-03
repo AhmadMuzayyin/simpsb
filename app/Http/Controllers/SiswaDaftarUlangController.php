@@ -20,11 +20,18 @@ class SiswaDaftarUlangController extends Controller
             'status' => 'required|in:Belum Bayar,Sudah Bayar'
         ]);
         try {
-            DaftarUlang::create([
-                'siswa_id' => $siswa->id,
-                'tgl_daftar_ulang' => date('Y-m-d'),
-                'status' => $request->status,
-            ]);
+            $daftar_ulang = DaftarUlang::where('siswa_id', $siswa->id)->first();
+            if ($daftar_ulang) {
+                $daftar_ulang->update([
+                    'status' => $request->status,
+                ]);
+            } else {
+                DaftarUlang::create([
+                    'siswa_id' => $siswa->id,
+                    'tgl_daftar_ulang' => date('Y-m-d'),
+                    'status' => $request->status,
+                ]);
+            }
             return redirect()->back()->with('success', 'Berhasil mengupload bukti bayar');
         } catch (\Throwable $th) {
             return redirect()->back()->with('error', 'Gagal mengupload bukti bayar');

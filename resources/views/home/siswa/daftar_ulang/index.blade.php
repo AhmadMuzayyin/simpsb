@@ -39,22 +39,24 @@
                                 </table>
                             </div>
                         @endif
-                        <div class="form-group">
-                            <label for="status">Status Bayar</label>
-                            <select name="status" id="status"
-                                class="form-control @error('status') is-invalid @enderror">
-                                <option value="" selected disabled>Pilih Status</option>
-                                <option value="Belum Bayar">Belum Bayar</option>
-                                <option value="Sudah Bayar">Sudah Bayar</option>
-                            </select>
-                            @error('status')
-                                <div class="invalid-feedback">
-                                    {{ $message }}
-                                </div>
-                            @enderror
-                        </div>
-                        <button type="submit"
-                            class="btn btn-{{ isset($daftar_ulang) ? 'warning' : 'primary' }} mt-3">{{ isset($daftar_ulang) ? 'Update Data' : 'Daftar Ulang' }}</button>
+                        @if (isset($daftar_ulang) && $daftar_ulang->status == 'Belum Bayar')
+                            <div class="form-group">
+                                <label for="status">Status Bayar</label>
+                                <select name="status" id="status"
+                                    class="form-control @error('status') is-invalid @enderror">
+                                    <option value="" selected disabled>Pilih Status</option>
+                                    <option value="Belum Bayar">Belum Bayar</option>
+                                    <option value="Sudah Bayar">Sudah Bayar</option>
+                                </select>
+                                @error('status')
+                                    <div class="invalid-feedback">
+                                        {{ $message }}
+                                    </div>
+                                @enderror
+                            </div>
+                            <button type="submit"
+                                class="btn btn-{{ isset($daftar_ulang) ? 'warning' : 'primary' }} mt-3">{{ isset($daftar_ulang) ? 'Update Data' : 'Daftar Ulang' }}</button>
+                        @endif
                     </form>
                 </div>
             </div>

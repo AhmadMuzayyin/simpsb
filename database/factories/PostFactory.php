@@ -16,12 +16,20 @@ class PostFactory extends Factory
      */
     public function definition(): array
     {
+        if (!is_dir(storage_path('/app/public/posts'))) {
+            mkdir(storage_path('/app/public/posts'), 0777, true);
+            $this->faker->image(
+                storage_path("/app/public/posts"),
+                640,
+                480
+            );
+        }
         return [
             'category_id' => $this->faker->numberBetween(1, 10),
             'slug' => $this->faker->slug(),
             'judul' => $this->faker->sentence(),
             'isi' => $this->faker->paragraphs(5, true),
-            'gambar' => $this->faker->imageUrl(640, 480),
+            'gambar' => 'https://picsum.photos/645/640/',
         ];
     }
 }

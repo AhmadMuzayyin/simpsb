@@ -41,56 +41,58 @@
                                         class="img-fluid">
                                 </td>
                             </tr>
-                            <tr>
-                                <td>Surat Keterangan Pindah Dari Sekolah Asal</td>
-                                <td>
-                                    <img src="{{ url($item->dokumen_siswa_pindahan->surat_pindah) }}" alt="gambar"
-                                        width="100" class="img-fluid">
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>Raport Terakhir</td>
-                                <td>
-                                    <img src="{{ url($item->dokumen_siswa_pindahan->raport_terakhir) }}" alt="gambar"
-                                        width="100" class="img-fluid">
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>Surat Keterangan Kelakuan Baik</td>
-                                <td>
-                                    <img src="{{ url($item->dokumen_siswa_pindahan->keterangan_prilaku_baik ?? '') }}"
-                                        alt="gambar" width="100" class="img-fluid">
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>Surat rekomendasi dari kepala sekolah atau kepala dinas pendidikan setempat
-                                    (asal)</td>
-                                <td>
-                                    <img src="{{ url($item->dokumen_siswa_pindahan->rekomendasi) }}" alt="gambar"
-                                        width="100" class="img-fluid">
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>Surat perwalian bagi siswa yang tidak ikut orang tua</td>
-                                <td>
-                                    <img src="{{ url($item->dokumen_siswa_pindahan->surat_perwalian) }}" alt="gambar"
-                                        width="100" class="img-fluid">
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>Sertifikat akreditasi sekolah asal</td>
-                                <td>
-                                    <img src="{{ url($item->dokumen_siswa_pindahan->sertifikat_akreditasi_sekolah) }}"
-                                        alt="gambar" width="100" class="img-fluid">
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>Foto Copy Ktp kedua orang tua</td>
-                                <td>
-                                    <img src="{{ url($item->dokumen_siswa_pindahan->ktp_orang_tua) }}" alt="gambar"
-                                        width="100" class="img-fluid">
-                                </td>
-                            </tr>
+                            @if ($item->pindahan == 'Ya')
+                                <tr>
+                                    <td>Surat Keterangan Pindah Dari Sekolah Asal</td>
+                                    <td>
+                                        <img src="{{ url($item->dokumen_siswa_pindahan->surat_pindah) }}" alt="gambar"
+                                            width="100" class="img-fluid">
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>Raport Terakhir</td>
+                                    <td>
+                                        <img src="{{ url($item->dokumen_siswa_pindahan->raport_terakhir) }}"
+                                            alt="gambar" width="100" class="img-fluid">
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>Surat Keterangan Kelakuan Baik</td>
+                                    <td>
+                                        <img src="{{ url($item->dokumen_siswa_pindahan->keterangan_prilaku_baik ?? '') }}"
+                                            alt="gambar" width="100" class="img-fluid">
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>Surat rekomendasi dari kepala sekolah atau kepala dinas pendidikan setempat
+                                        (asal)</td>
+                                    <td>
+                                        <img src="{{ url($item->dokumen_siswa_pindahan->rekomendasi) }}" alt="gambar"
+                                            width="100" class="img-fluid">
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>Surat perwalian bagi siswa yang tidak ikut orang tua</td>
+                                    <td>
+                                        <img src="{{ url($item->dokumen_siswa_pindahan->surat_perwalian) }}"
+                                            alt="gambar" width="100" class="img-fluid">
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>Sertifikat akreditasi sekolah asal</td>
+                                    <td>
+                                        <img src="{{ url($item->dokumen_siswa_pindahan->sertifikat_akreditasi_sekolah) }}"
+                                            alt="gambar" width="100" class="img-fluid">
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>Foto Copy Ktp kedua orang tua</td>
+                                    <td>
+                                        <img src="{{ url($item->dokumen_siswa_pindahan->ktp_orang_tua) }}"
+                                            alt="gambar" width="100" class="img-fluid">
+                                    </td>
+                                </tr>
+                            @endif
                         @endif
                     </table>
                 </div>

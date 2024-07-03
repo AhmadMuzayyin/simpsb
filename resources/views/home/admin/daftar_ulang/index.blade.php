@@ -21,8 +21,7 @@
                                     <th>#</th>
                                     <th>Nama Siswa</th>
                                     <th>Tanggal</th>
-                                    <th>Bukti Bayar</th>
-                                    <th>Status</th>
+                                    <th>Status Pembayaran</th>
                                 </tr>
                             </thead>
                             <tfoot>
@@ -30,19 +29,17 @@
                                     <th>#</th>
                                     <th>Nama Siswa</th>
                                     <th>Tanggal</th>
-                                    <th>Bukti Bayar</th>
-                                    <th>Status</th>
+                                    <th>Status Pembayaran</th>
                                 </tr>
                             </tfoot>
                             <tbody>
                                 @foreach ($daftar_ulang as $item)
                                     <tr>
                                         <td>{{ $loop->iteration }}</td>
-                                        <td>{{ $item->siswa->user->name }}</td>
-                                        <td>{{ $item->tgl_daftar_ulang }}</td>
                                         <td>
-                                            <img src="{{ url($item->bukti_bayar) }}" alt="bukti bayar" width="100" class="img-fluid">
+                                            {{ $item->siswa->user->name . ' - Kelas ' . $item->siswa->kelas->nama }}
                                         </td>
+                                        <td>{{ $item->tgl_daftar_ulang }}</td>
                                         <td>{{ $item->status }}</td>
                                     </tr>
                                 @endforeach

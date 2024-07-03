@@ -21,4 +21,8 @@ class Siswa extends Model
     {
         return $this->hasOne(DokumenSiswa::class);
     }
+    public function dokumen_siswa_pindahan()
+    {
+        return $this->hasOne(DokumenSiswaPindahan::class);
+    }
 }

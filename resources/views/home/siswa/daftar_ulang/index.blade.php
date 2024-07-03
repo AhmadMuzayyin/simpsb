@@ -27,7 +27,7 @@
                                         <td>Telah Melakukan Daftar Ulang</td>
                                     </tr>
                                     <tr>
-                                        <td>Status Pembayar</td>
+                                        <td>Status Pembayaran</td>
                                         <td>
                                             {{ $daftar_ulang->status }}
                                         </td>

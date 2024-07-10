@@ -52,12 +52,28 @@
                                                 data-toggle="modal" data-target="#detailSiswa-{{ $loop->iteration }}">
                                                 <i class="fas fa-eye"></i>
                                             </button>
+                                            @if ($item->status == 'Diterima')
+                                                <a href="{{ route('admin.siswa.download', $item->id) }}"
+                                                    class="text-decoration-none">
+                                                    <button class="btn btn-info btn-circle btn-sm">
+                                                        <i class="fas fa-download"></i>
+                                                    </button>
+                                                </a>
+                                            @endif
                                         </td>
                                         <td>
-                                            <button type="button" class="btn btn-info btn-circle btn-sm"
+                                            <button type="button" class="btn btn-warning btn-circle btn-sm"
                                                 data-toggle="modal" data-target="#dokumenSiswa-{{ $loop->iteration }}">
                                                 <i class="fas fa-eye"></i>
                                             </button>
+                                            @if ($item->dokumen_siswa->status == 'Diterima')
+                                                <a href="{{ route('admin.siswa.dokumen_download', $item->id) }}"
+                                                    class="text-decoration-none">
+                                                    <button class="btn btn-info btn-circle btn-sm">
+                                                        <i class="fas fa-download"></i>
+                                                    </button>
+                                                </a>
+                                            @endif
                                         </td>
                                         <td>{{ $item->status }}</td>
                                         <td>

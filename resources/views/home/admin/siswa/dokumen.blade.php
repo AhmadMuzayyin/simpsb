@@ -14,7 +14,7 @@
                     <table class="table">
                         @if (isset($item->dokumen_siswa))
                             <tr>
-                                <td>File Pendukung</td>
+                                <td>File Ijazah</td>
                                 <td>
                                     <img src="{{ url($item->dokumen_siswa->file_pendukung) }}" alt="gambar"
                                         max-height="100" width="100" class="img-fluid"></img>

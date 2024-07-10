@@ -2,6 +2,8 @@
 
 namespace App\Providers;
 
+use App\Events\Reactivate;
+use App\Listeners\NotifyUserReactivated;
 use Illuminate\Auth\Events\Registered;
 use Illuminate\Auth\Listeners\SendEmailVerificationNotification;
 use Illuminate\Foundation\Support\Providers\EventServiceProvider as ServiceProvider;

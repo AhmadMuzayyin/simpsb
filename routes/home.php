@@ -8,6 +8,7 @@ use App\Http\Controllers\AdminPendaftaranController;
 use App\Http\Controllers\AdminSiswaBaruController;
 use App\Http\Controllers\AdminUserAdminController;
 use App\Http\Controllers\DashboardController;
+use App\Http\Controllers\NotificationController;
 use App\Http\Controllers\SiswaDaftarUlangController;
 use App\Http\Controllers\SiswaPendaftaranController;
 use App\Http\Controllers\SiswaUploadDokumenController;
@@ -37,6 +38,7 @@ Route::middleware(['auth'])->group(function () {
             Route::get('/siswa/{siswa}/perbaiki_data', 'perbaiki_data')->name('siswa.perbaiki_data');
             Route::get('/siswa/{siswa}/perbaiki_dokumen', 'perbaiki_dokumen')->name('siswa.perbaiki_dokumen');
             Route::get('/siswa/{siswa}/download', 'download')->name('siswa.download');
+            Route::get('/siswa/{siswa}/dokumen_download', 'dokumen_download')->name('siswa.dokumen_download');
         });
         Route::controller(AdminDaftarUlangController::class)->group(function () {
             Route::get('/daftar_ulang', 'index')->name('daftar_ulang.index');
@@ -84,5 +86,8 @@ Route::middleware(['auth'])->group(function () {
             Route::get('/daftar_ulang', 'index')->name('daftar_ulang.index');
             Route::post('/daftar_ulang/store/{siswa}', 'store')->name('daftar_ulang.store');
         });
+    });
+    Route::controller(NotificationController::class)->group(function () {
+        Route::get('/notifications/{user}/read', 'read')->name('notifications.read');
     });
 });

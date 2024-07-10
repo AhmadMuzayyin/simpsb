@@ -84,6 +84,7 @@ class SiswaUploadDokumenController extends Controller
                             'sertifikat_akreditasi_sekolah' => 'storage/dokumen/' . $request->file('sertifikat_akreditasi_sekolah')->hashName(),
                             'ktp_orang_tua' => 'storage/dokumen/' . $request->file('ktp_orang_tua')->hashName(),
                         ]);
+                        $dokumen = DokumenSiswa::where('siswa_id', $siswa->id)->first();
                         $dokumen->update([
                             'status' => 'Menunggu Konfirmasi'
                         ]);
@@ -101,6 +102,7 @@ class SiswaUploadDokumenController extends Controller
                             'sertifikat_akreditasi_sekolah' => 'storage/dokumen/' . $request->file('sertifikat_akreditasi_sekolah')->hashName(),
                             'ktp_orang_tua' => 'storage/dokumen/' . $request->file('ktp_orang_tua')->hashName(),
                         ]);
+                        $dokumen = DokumenSiswa::where('siswa_id', $siswa->id)->first();
                         $dokumen->update([
                             'status' => 'Menunggu Konfirmasi'
                         ]);
@@ -112,7 +114,7 @@ class SiswaUploadDokumenController extends Controller
             }
             return redirect()->back()->with('success', 'Berhasil mengupload dokumen');
         } catch (\Throwable $th) {
-            dd($th->getMessage());
+            // dd($th->getMessage());
             return redirect()->back()->with('error', 'Gagal mengupload dokumen');
         }
     }

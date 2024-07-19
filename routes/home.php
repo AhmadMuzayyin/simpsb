@@ -7,6 +7,7 @@ use App\Http\Controllers\AdminKelasController;
 use App\Http\Controllers\AdminPendaftaranController;
 use App\Http\Controllers\AdminSiswaBaruController;
 use App\Http\Controllers\AdminUserAdminController;
+use App\Http\Controllers\AlumniController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\NotificationController;
 use App\Http\Controllers\SiswaDaftarUlangController;
@@ -39,9 +40,14 @@ Route::middleware(['auth'])->group(function () {
             Route::get('/siswa/{siswa}/perbaiki_dokumen', 'perbaiki_dokumen')->name('siswa.perbaiki_dokumen');
             Route::get('/siswa/{siswa}/download', 'download')->name('siswa.download');
             Route::get('/siswa/{siswa}/dokumen_download', 'dokumen_download')->name('siswa.dokumen_download');
+            Route::get('siswa/lulus/{siswa}', 'lulus')->name('siswa.lulus');
         });
         Route::controller(AdminDaftarUlangController::class)->group(function () {
             Route::get('/daftar_ulang', 'index')->name('daftar_ulang.index');
+        });
+        Route::controller(AlumniController::class)->as('alumni.')->group(function () {
+            Route::get('alumni', 'index')->name('index');
+            Route::get('alumni/download/{siswa}', 'download')->name('download');
         });
         Route::controller(AdminGaleriController::class)->group(function () {
             Route::get('/galeri', 'index')->name('galeri.index');

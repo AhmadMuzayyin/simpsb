@@ -27,6 +27,7 @@
                                     <th>Biodata</th>
                                     <th>Dokumen</th>
                                     <th>Status</th>
+                                    <th>Status Kelulusan</th>
                                     <th>Aksi</th>
                                 </tr>
                             </thead>
@@ -38,6 +39,7 @@
                                     <th>Biodata</th>
                                     <th>Dokumen</th>
                                     <th>Status</th>
+                                    <th>Status Kelulusan</th>
                                     <th>Aksi</th>
                                 </tr>
                             </tfoot>
@@ -47,6 +49,7 @@
                                         <td>{{ $loop->iteration }}</td>
                                         <td>{{ $item->user->name }}</td>
                                         <td>{{ $item->kelas->nama }}</td>
+                                        {{-- biodata --}}
                                         <td>
                                             <button type="button" class="btn btn-warning btn-circle btn-sm"
                                                 data-toggle="modal" data-target="#detailSiswa-{{ $loop->iteration }}">
@@ -61,6 +64,7 @@
                                                 </a>
                                             @endif
                                         </td>
+                                        {{-- dokumen --}}
                                         <td>
                                             <button type="button" class="btn btn-warning btn-circle btn-sm"
                                                 data-toggle="modal" data-target="#dokumenSiswa-{{ $loop->iteration }}">
@@ -76,6 +80,18 @@
                                             @endif
                                         </td>
                                         <td>{{ $item->status }}</td>
+                                        <td>
+                                            @if ($item->status_kelulusan == false)
+                                                <a href="{{ route('admin.siswa.lulus', $item->id) }}">
+                                                    <span class="badge badge-success">Aktif</span>
+                                                </a>
+                                            @else
+                                                <a href="{{ route('admin.siswa.lulus', $item->id) }}">
+                                                    <span class="badge badge-danger">Lulus</span>
+                                                </a>
+                                            @endif
+                                        </td>
+                                        {{-- aksi --}}
                                         <td>
                                             @if ($item->status == 'Menunggu Konfirmasi')
                                                 <a href="{{ route('admin.siswa.confirmation', $item->id) }}"

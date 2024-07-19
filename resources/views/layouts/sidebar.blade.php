@@ -51,6 +51,13 @@
             </a>
         </li>
         <!-- Nav Item - Pages Collapse Menu -->
+        <li class="nav-item {{ request()->routeIs('admin.alumni.*') ? 'active' : '' }}">
+            <a class="nav-link" href="{{ route('admin.alumni.index') }}">
+                <i class="fas fa-user-graduate"></i>
+                <span>Siswa Alumni</span>
+            </a>
+        </li>
+        <!-- Nav Item - Pages Collapse Menu -->
         <li class="nav-item {{ request()->routeIs('admin.galeri.*') ? 'active' : '' }}">
             <a class="nav-link" href="{{ route('admin.galeri.index') }}">
                 <i class="fas fa-images"></i>

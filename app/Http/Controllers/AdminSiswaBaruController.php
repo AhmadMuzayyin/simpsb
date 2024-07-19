@@ -114,4 +114,22 @@ class AdminSiswaBaruController extends Controller
             //throw $th;
         }
     }
+    public function lulus(Siswa $siswa)
+    {
+        try {
+            if ($siswa->status_kelulusan == true) {
+                $siswa->update([
+                    'status_kelulusan' => false
+                ]);
+                return redirect()->back()->with('success', 'Berhasil merubah data status kelulusan siswa');
+            } else {
+                $siswa->update([
+                    'status_kelulusan' => true
+                ]);
+                return redirect()->back()->with('success', 'Berhasil merubah data status kelulusan siswa');
+            }
+        } catch (\Throwable $th) {
+            return redirect()->back()->with('error', 'Gagal merubah status kelulusan siswa');
+        }
+    }
 }

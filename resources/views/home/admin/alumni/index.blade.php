@@ -7,9 +7,22 @@
                 <div class="card-header py-3">
                     <div class="row">
                         <div class="col">
-                            <h6 class="m-0 font-weight-bold text-primary">Data Siswa Alumni</h6>
+                            <h6 class="m-0 font-weight-bold text-primary">
+                                Data Siswa Alumni
+                                @if (request()->get('tahun_akademik'))
+                                    Tahun Akademik {{ request()->get('tahun_akademik') }}
+                                @endif
+                            </h6>
                         </div>
                         <div class="col-right">
+                            <select name="tahun_akademik" id="tahun_akademik" class="form-control">
+                                <option value="">Pilih Tahun Akademik</option>
+                                @foreach ($tahun_akademik as $item)
+                                    <option value="{{ $item->tahun_akademik }}"
+                                        {{ request()->get('tahun_akademik') == $item->tahun_akademik ? 'selected' : '' }}>
+                                        {{ $item->tahun_akademik }}</option>
+                                @endforeach
+                            </select>
                         </div>
                     </div>
                 </div>
@@ -82,6 +95,11 @@
     <script>
         $(document).ready(function() {
             $('#table').DataTable();
+            $('#tahun_akademik').on('change', function() {
+                var tahun_akademik = $(this).val();
+                window.location.href = "{{ route('admin.alumni.index') }}" + "?tahun_akademik=" +
+                    tahun_akademik;
+            })
         });
     </script>
 @endpush

@@ -50,6 +50,42 @@
                 <span>Daftar Ulang</span>
             </a>
         </li>
+        <li class="nav-item">
+            <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTwo"
+                aria-expanded="false" aria-controls="collapseTwo">
+                <i class="fas fa-folder-open"></i>
+                <span>Data Master</span>
+            </a>
+            <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar"
+                style="">
+                <div class="bg-white py-2 collapse-inner rounded">
+                    <a class="collapse-item" href="">Data Aspek</a>
+                    <a class="collapse-item" href="">Data Kriteria</a>
+                    <a class="collapse-item" href="">Data Penilaian</a>
+                </div>
+            </div>
+        </li>
+        <!-- Nav Item - Pages Collapse Menu -->
+        <li class="nav-item {{ request()->routeIs('') ? 'active' : '' }}">
+            <a class="nav-link" href="">
+                <i class="fas fa-calculator"></i>
+                <span>Data Perhitungan</span>
+            </a>
+        </li>
+        <!-- Nav Item - Pages Collapse Menu -->
+        <li class="nav-item {{ request()->routeIs() ? 'active' : '' }}">
+            <a class="nav-link" href="">
+                <i class="far fa-file-excel"></i>
+                <span>Data Hasil Akhir</span>
+            </a>
+        </li>
+        <!-- Nav Item - Pages Collapse Menu -->
+        <li class="nav-item {{ request()->routeIs() ? 'active' : '' }}">
+            <a class="nav-link" href="">
+                <i class="fas fa-file-contract"></i>
+                <span>Data Rekapan</span>
+            </a>
+        </li>
         <!-- Nav Item - Pages Collapse Menu -->
         <li class="nav-item {{ request()->routeIs('admin.alumni.*') ? 'active' : '' }}">
             <a class="nav-link" href="{{ route('admin.alumni.index') }}">

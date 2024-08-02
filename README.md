@@ -3,8 +3,6 @@
 ## Deskripsi
 Aplikasi ini merupakan aplikasi yang digunakan untuk melakukan pendaftaran siswa baru. Aplikasi ini dibuat menggunakan bahasa pemrograman php dan framework laravel. Aplikasi ini memiliki beberapa fitur diantaranya:
 1. Pendaftaran siswa baru
-2. Pendaftaran siswa baru dengan jalur prestasi
-3. Pendaftaran siswa baru dengan jalur afirmasi
 4. Pendaftaran siswa baru dengan jalur perpindahan
 5. Pendaftaran siswa baru dengan jalur umum
 

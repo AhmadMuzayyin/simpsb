@@ -11,6 +11,7 @@ use App\Models\Pendaftaran;
 use App\Models\Siswa;
 use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Validator;
 
 class SiswaPendaftaranController extends Controller
 {
@@ -61,9 +62,53 @@ class SiswaPendaftaranController extends Controller
             return response()->json(['error' => 'Data Siswa gagal ditambahkan'], 500);
         }
     }
-    public function wali(WaliRequest $request)
+    public function wali(Request $request)
     {
-        $siswa = $request->validated();
+        // dd($request->all());
+        $siswa = $request->validate([
+            'kondisi_ayah' => 'required|string',
+            'kondisi_ibu' => 'required|string',
+            'nama_wali' => 'nullable|string',
+            'pekerjaan_wali' => 'nullable|string',
+            'kondisi_wali' => 'nullable|string',
+            'penghasilan_wali' => 'nullable|numeric',
+            'telpon_wali' => 'nullable|numeric',
+            'alamat_wali' => 'nullable|string',
+        ]);
+        if ($siswa['kondisi_ayah'] == 'Hidup') {
+            $validator = Validator::make($request->all(), [
+                'nama_ayah' => 'required|string',
+                'pekerjaan_ayah' => 'required|string',
+                'penghasilan_ayah' => 'required|numeric',
+                'telpon_ayah' => 'required|numeric',
+                'alamat_ortu' => 'required|string',
+            ]);
+            if ($validator->fails()) {
+                return response()->json(['error' => $validator->errors()], 500);
+            }
+            $siswa['nama_ayah'] = $request->nama_ayah;
+            $siswa['pekerjaan_ayah'] = $request->pekerjaan_ayah;
+            $siswa['penghasilan_ayah'] = $request->penghasilan_ayah;
+            $siswa['telpon_ayah'] = $request->telpon_ayah;
+            $siswa['alamat_ortu'] = $request->alamat_ortu;
+        }
+        if ($siswa['kondisi_ibu'] == 'Hidup') {
+            $validator = Validator::make($request->all(), [
+                'nama_ibu' => 'required|string',
+                'pekerjaan_ibu' => 'required|string',
+                'penghasilan_ibu' => 'required|numeric',
+                'telpon_ibu' => 'required|numeric',
+                'alamat_ortu' => 'required|string',
+            ]);
+            if ($validator->fails()) {
+                return response()->json(['error' => $validator->errors()], 500);
+            }
+            $siswa['nama_ibu'] = $request->nama_ibu;
+            $siswa['pekerjaan_ibu'] = $request->pekerjaan_ibu;
+            $siswa['penghasilan_ibu'] = $request->penghasilan_ibu;
+            $siswa['telpon_ibu'] = $request->telpon_ibu;
+            $siswa['alamat_ortu'] = $request->alamat_ortu;
+        }
         try {
             $pendaftaran = Pendaftaran::whereDate('mulai', '<=', date('Y-m-d'))->whereDate('berakhir', '>', date('Y-m-d'))->first();
             if (!$pendaftaran) {
@@ -74,7 +119,7 @@ class SiswaPendaftaranController extends Controller
             if ($data_siswa) {
                 $data_siswa->update($siswa);
             } else {
-                Siswa::create($siswa);
+                return response()->json(['error' => 'Data Siswa tidak ditemukan'], 500);
             }
             return response()->json(['success' => 'Data Siswa berhasil ditambahkan', 'url' => route('siswa.pendaftaran.index') . '?step=sekolah'], 200);
         } catch (\Exception $th) {

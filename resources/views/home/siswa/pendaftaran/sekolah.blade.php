@@ -32,9 +32,8 @@
         </div>
     </div>
     <div class="col">
-        <label for="pindahan">Status Pindahan Siswa</label>
+        <label for="pindahan">Apakah anda siswa pindahan?</label>
         <select class="form-control @error('pindahan') is-invalid @enderror" name="pindahan" id="pindahan">
-            <option value="">-- Pilih Status Pindahan Siswa --</option>
             <option value="Ya"
                 {{ isset($siswa) ? ($siswa->pindahan == 'Ya' ? 'selected' : '') : (old('pindahan') == 'Ya' ? 'selected' : '') }}>
                 Ya</option>

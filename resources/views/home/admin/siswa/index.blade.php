@@ -55,6 +55,7 @@
                                                 data-toggle="modal" data-target="#detailSiswa-{{ $loop->iteration }}">
                                                 <i class="fas fa-eye"></i>
                                             </button>
+                                            @include('home.admin.siswa.modal')
                                             @if ($item->status == 'Diterima')
                                                 <a href="{{ route('admin.siswa.download', $item->id) }}"
                                                     class="text-decoration-none">
@@ -70,7 +71,8 @@
                                                 data-toggle="modal" data-target="#dokumenSiswa-{{ $loop->iteration }}">
                                                 <i class="fas fa-eye"></i>
                                             </button>
-                                            @if ($item->dokumen_siswa->status == 'Diterima')
+                                            @include('home.admin.siswa.dokumen')
+                                            @if (isset($item->dokumen_siswa) && $item->dokumen_siswa->status == 'Diterima')
                                                 <a href="{{ route('admin.siswa.dokumen_download', $item->id) }}"
                                                     class="text-decoration-none">
                                                     <button class="btn btn-info btn-circle btn-sm">
@@ -162,8 +164,6 @@
                                                     <i class="fas fa-trash"></i>
                                                 </button>
                                             </a>
-                                            @include('home.admin.siswa.modal')
-                                            @include('home.admin.siswa.dokumen')
                                         </td>
                                     </tr>
                                 @endforeach

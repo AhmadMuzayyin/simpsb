@@ -75,7 +75,7 @@
         </div>
     </div>
     @isset($siswa)
-        @if ($siswa->pindahan == true)
+        @if ($siswa->pindahan == 'Ya')
             <h3 class="font-weight-bold text-center mt-5">Dokumen Pendukung Siswa Pindahan</h3>
             <div class="row mt-4">
                 <div class="col">
@@ -191,29 +191,61 @@
                     @enderror
                 </div>
             </div>
-            <div class="row mt-4">
-                <div class="col">
-                    @if (isset($pindahan->ktp_orang_tua))
-                        <div class="row">
-                            <div class="col">
-                                <img src="{{ url($pindahan->ktp_orang_tua) }}" alt="pas foto" width="100"
-                                    class="img-fluid" />
-                            </div>
-                        </div>
-                    @endif
-                    <label for="ktp_orang_tua">Foto Copy Ktp kedua orang tua</label>
-                    <input type="file" class="form-control @error('ktp_orang_tua') is-invalid @enderror"
-                        name="ktp_orang_tua" id="ktp_orang_tua" accept=".jpeg, .jpg, .png">
-                    @error('ktp_orang_tua')
-                        <div class="invalid-feedback">
-                            {{ $message }}
-                        </div>
-                    @enderror
-                </div>
-                <div class="col"></div>
-            </div>
         @endif
     @endisset
+    <div class="row mt-4">
+        <div class="col">
+            @if (isset($dokumen->ktp_ayah))
+                <div class="row">
+                    <div class="col">
+                        <img src="{{ url($dokumen->ktp_ayah) }}" width="100" class="img-fluid">
+                    </div>
+                </div>
+            @endif
+            <label for="ktp_ayah">File KTP Ayah</label>
+            <input type="file" class="form-control @error('ktp_ayah') is-invalid @enderror" name="ktp_ayah"
+                id="ktp_ayah" accept=".jpeg, .jpg, .png">
+            @error('ktp_ayah')
+                <div class="invalid-feedback">
+                    {{ $message }}
+                </div>
+            @enderror
+        </div>
+        <div class="col">
+            @if (isset($dokumen->ktp_ibu))
+                <div class="row">
+                    <div class="col">
+                        <img src="{{ url($dokumen->ktp_ibu) }}" alt="pas foto" width="100" class="img-fluid" />
+                    </div>
+                </div>
+            @endif
+            <label for="ktp_ibu">File KTP Ibu</label>
+            <input type="file" class="form-control @error('ktp_ibu') is-invalid @enderror" name="ktp_ibu"
+                id="ktp_ibu" accept=".jpeg, .jpg, .png">
+            @error('ktp_ibu')
+                <div class="invalid-feedback">
+                    {{ $message }}
+                </div>
+            @enderror
+        </div>
+        <div class="col">
+            @if (isset($dokumen->ktp_wali))
+                <div class="row">
+                    <div class="col">
+                        <img src="{{ url($dokumen->ktp_wali) }}" alt="pas foto" width="100" class="img-fluid" />
+                    </div>
+                </div>
+            @endif
+            <label for="ktp_wali">File KTP Wali</label>
+            <input type="file" class="form-control @error('ktp_wali') is-invalid @enderror" name="ktp_wali"
+                id="ktp_wali" accept=".jpeg, .jpg, .png">
+            @error('ktp_wali')
+                <div class="invalid-feedback">
+                    {{ $message }}
+                </div>
+            @enderror
+        </div>
+    </div>
     <ul class="mt-3 text-danger">
         <li>Mohon inputkan data yang valid</li>
         <li>Ketika tombol simpan ditekan maka data tidak dapat dirubah. Kecuali dikonfirmasi untuk

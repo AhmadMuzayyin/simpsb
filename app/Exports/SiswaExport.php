@@ -45,7 +45,7 @@ class SiswaExport implements FromCollection, WithHeadings, ShouldAutoSize, WithM
             'Alamat Wali',
             'Sekolah Asal',
             'Kelas Pilihan',
-            'Status Pindahan',
+            'Siswa Pindahan',
         ];
     }
     public function collection()

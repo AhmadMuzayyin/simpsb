@@ -61,7 +61,7 @@
                                                     <i class="fas fa-trash"></i>
                                                 </button>
                                             </a>
-                                            @include('home.admin.kelas.modal')
+                                            @include('home.admin.galeri.modal')
                                         </td>
                                     </tr>
                                 @endforeach
@@ -100,7 +100,8 @@
                         </div>
                         <div class="form-group">
                             <label for="judul">Judul</label>
-                            <input type="text" name="judul" id="judul" class="form-control @error('judul')
+                            <input type="text" name="judul" id="judul"
+                                class="form-control @error('judul')
                                 is-invalid
                             @enderror"
                                 placeholder="Judul">
@@ -112,9 +113,11 @@
                         </div>
                         <div class="form-group">
                             <label for="gambar">Gambar</label>
-                            <input type="file" name="gambar" id="gambar" class="form-control @error('gambar')
+                            <input type="file" name="gambar" id="gambar"
+                                class="form-control @error('gambar')
                                 is-invalid
-                            @enderror" placeholder="Gambar">
+                            @enderror"
+                                placeholder="Gambar">
                             @error('gambar')
                                 <div class="invalid-feedback">
                                     {{ $message }}

@@ -39,8 +39,10 @@ cd simpsb
 ```bash
 composer install
 ```
-4. setting file database
+4. Setting file database
 ```bash
+copy file .env.example menjadi .env dengan perintah
+
 cp .env.example .env
 
 sesuaikan dengan pengaturan database anda

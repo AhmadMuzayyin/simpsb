@@ -13,6 +13,12 @@ use App\Http\Controllers\NotificationController;
 use App\Http\Controllers\SiswaDaftarUlangController;
 use App\Http\Controllers\SiswaPendaftaranController;
 use App\Http\Controllers\SiswaUploadDokumenController;
+use App\Http\Controllers\SPK\AspekController;
+use App\Http\Controllers\SPK\HasilAkhirController;
+use App\Http\Controllers\SPK\KriteriaController;
+use App\Http\Controllers\SPK\PenilaianController;
+use App\Http\Controllers\SPK\PerhitunganController;
+use App\Http\Controllers\SPK\RekapController;
 use Illuminate\Support\Facades\Route;
 
 Route::middleware(['auth'])->group(function () {
@@ -44,6 +50,39 @@ Route::middleware(['auth'])->group(function () {
         });
         Route::controller(AdminDaftarUlangController::class)->group(function () {
             Route::get('/daftar_ulang', 'index')->name('daftar_ulang.index');
+        });
+        // data master
+        Route::controller(KriteriaController::class)->group(function () {
+            Route::get('/kriteria', 'index')->name('kriteria.index');
+            Route::post('/kriteria/store', 'store')->name('kriteria.store');
+            Route::post('/kriteria/{kriteria}/update', 'update')->name('kriteria.update');
+            Route::delete('/kriteria/{kriteria}/destroy', 'destroy')->name('kriteria.destroy');
+            Route::get('/kriteria/getKriteria', 'getKriteria')->name('kriteria.getKriteria');
+        });
+        Route::controller(AspekController::class)->group(function () {
+            Route::get('/aspek', 'index')->name('aspek.index');
+            Route::post('/aspek/store', 'store')->name('aspek.store');
+            Route::post('/aspek/{aspek}/update', 'update')->name('aspek.update');
+            Route::get('/aspek/{aspek}/destroy', 'destroy')->name('aspek.destroy');
+        });
+        Route::controller(PenilaianController::class)->group(function () {
+            Route::get('/penilaian', 'index')->name('penilaian.index');
+            Route::get('/penilaian/profiling', 'profiling')->name('penilaian.profiling');
+            Route::post('/penilaian/{penilaian}/update', 'update')->name('penilaian.update');
+        });
+        // perhitungan
+        Route::controller(PerhitunganController::class)->group(function () {
+            Route::get('/perhitungan', 'index')->name('perhitungan.index');
+            Route::get('/perhitungan/aspek_keluarga', 'calcAK')->name('perhitungan.calcAK');
+            Route::get('/perhitungan/aspek_sosial_ekonomi', 'calcASE')->name('perhitungan.calcASE');
+            Route::get('/perhitungan/aspek_akademik', 'calcAA')->name('perhitungan.calcAA');
+        });
+        Route::controller(HasilAkhirController::class)->group(function () {
+            Route::get('/hasil_akhir', 'index')->name('hasil_akhir.index');
+        });
+        Route::controller(RekapController::class)->group(function () {
+            Route::get('/rekap', 'index')->name('rekap.index');
+            Route::post('/rekap/update', 'update')->name('rekap.update');
         });
         Route::controller(AlumniController::class)->as('alumni.')->group(function () {
             Route::get('alumni', 'index')->name('index');

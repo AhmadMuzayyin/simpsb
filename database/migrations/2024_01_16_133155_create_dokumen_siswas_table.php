@@ -19,6 +19,9 @@ return new class extends Migration
             $table->string('file_kk');
             $table->string('file_akta');
             $table->string('file_foto');
+            $table->string('ktp_ayah')->nullable();
+            $table->string('ktp_ibu')->nullable();
+            $table->string('ktp_wali')->nullable();
             $table->enum('status', ['Menunggu Konfirmasi', 'Perbaiki Dokumen', 'Diterima'])->default('Menunggu Konfirmasi');
             $table->timestamps();
         });

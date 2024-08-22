@@ -26,15 +26,20 @@ class AdminSiswaBaruController extends Controller
     public function confirmation(Siswa $siswa)
     {
         try {
-            DokumenSiswa::where('siswa_id', $siswa->id)->update([
-                'status' => 'Diterima'
-            ]);
-            $siswa->update([
-                'status' => 'Diterima'
-            ]);
-            $user = User::whereId($siswa->user_id)->first();
-            $user->notify(new SiswaNotification('Selamat anda diterima, silahkan lakukan daftar ulang dan segera lakukan pembayaran'));
-            return redirect()->back()->with('succes', 'Data siswa berhasil diubah');
+            $dokumen = DokumenSiswa::firstWhere('siswa_id', $siswa->id);
+            if ($dokumen) {
+                $dokumen->where('siswa_id', $siswa->id)->update([
+                    'status' => 'Diterima'
+                ]);
+                $siswa->update([
+                    'status' => 'Diterima'
+                ]);
+                $user = User::whereId($siswa->user_id)->first();
+                $user->notify(new SiswaNotification('Selamat anda diterima, silahkan lakukan daftar ulang dan segera lakukan pembayaran'));
+                return redirect()->back()->with('succes', 'Data siswa berhasil diubah');
+            } else {
+                return redirect()->back()->with('error', 'Data dokumen siswa belum diupload');
+            }
         } catch (\Throwable $th) {
             return redirect()->back()->with('error', 'Data siswa gagal diubah');
         }
@@ -55,6 +60,7 @@ class AdminSiswaBaruController extends Controller
     public function destroy(Siswa $siswa)
     {
         try {
+            User::where('id', $siswa->user_id)->delete();
             $siswa->delete();
             return redirect()->back()->with('success', 'Data Siswa berhasil dihapus');
         } catch (\Throwable $th) {
@@ -111,7 +117,7 @@ class AdminSiswaBaruController extends Controller
             }
             return Excel::download(new DokumenSiswaExport($siswa->load('user', 'kelas', 'dokumen_siswa', 'dokumen_siswa_pindahan')), 'dokumen_siswa.xlsx');
         } catch (\Throwable $th) {
-            //throw $th;
+            dd($th->getMessage());
         }
     }
     public function lulus(Siswa $siswa)

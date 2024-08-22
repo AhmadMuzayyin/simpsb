@@ -37,7 +37,9 @@ class DokumenSiswaExport implements ShouldAutoSize, WithDrawings
                 "Surat_Rekomendasi" => $this->siswa->dokumen_siswa_pindahan->rekomendasi,
                 "Surat_Perwalian" => $this->siswa->dokumen_siswa_pindahan->surat_perwalian,
                 "Sertifikat_Akreditasi_Sekolah_Asal" => $this->siswa->dokumen_siswa_pindahan->sertifikat_akreditasi_sekolah,
-                "KTP_Orang_Tua" => $this->siswa->dokumen_siswa_pindahan->ktp_orang_tua,
+                "KTP Ayah" => $this->siswa->dokumen_siswa_pindahan->ktp_ayah,
+                "KTP Ibu" => $this->siswa->dokumen_siswa_pindahan->ktp_ibu,
+                "KTP Wali" => $this->siswa->dokumen_siswa_pindahan->ktp_wali,
             ];
         }
         $col = 'A';

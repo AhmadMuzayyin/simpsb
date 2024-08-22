@@ -21,7 +21,9 @@ return new class extends Migration
             $table->string('rekomendasi')->nullable();
             $table->string('surat_perwalian')->nullable();
             $table->string('sertifikat_akreditasi_sekolah')->nullable();
-            $table->string('ktp_orang_tua')->nullable();
+            $table->string('ktp_ayah')->nullable();
+            $table->string('ktp_ibu')->nullable();
+            $table->string('ktp_wali')->nullable();
             $table->timestamps();
         });
     }

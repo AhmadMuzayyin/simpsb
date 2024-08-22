@@ -31,7 +31,7 @@ class BiodataRequest extends FormRequest
             'agama' => 'required|string|in:Islam,Kristen,Katolik,Hindu,Budha,Konghucu',
             'whatsapp' => 'required|numeric',
             'anak_ke' => 'required|numeric',
-            'jumlah_saudara' => 'required|numeric',
+            'jumlah_saudara' => 'required|string|in:Tanpa Saudara Kandung,1 Saudara Kandung,2 Saudara Kandung,Lebih dari 2 Saudara Kandung',
             'bahasa' => 'required|string',
             'alamat_asal' => 'required|string',
             'alamat_sekarang' => 'required|string',

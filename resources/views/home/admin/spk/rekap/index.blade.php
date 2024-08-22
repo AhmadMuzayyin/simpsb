@@ -10,6 +10,17 @@
                             <h6 class="m-0 font-weight-bold text-primary">Data Rekapan</h6>
                         </div>
                         <div class="col-right">
+                            @php
+                                $tahun_akdemik = request()->get('tahun_akademik');
+                            @endphp
+                            <select name="tahun_akademik" id="tahun_akademik" class="form-control">
+                                <option value="" selected disabled>Pilih Tahun Akademik</option>
+                                @foreach ($tahun_akademik as $tahun)
+                                    <option value="{{ $tahun->tahun_akademik }}"
+                                        {{ $tahun_akdemik == $tahun->tahun_akademik ? 'selected' : '' }}>
+                                        {{ $tahun->tahun_akademik }}</option>
+                                @endforeach
+                            </select>
                         </div>
                     </div>
                 </div>
@@ -98,6 +109,10 @@
                         }
                     }
                 });
+            });
+            $('#tahun_akademik').on('change', function() {
+                var tahun_akademik = $(this).val();
+                window.location.href = "{{ route('admin.rekap.index') }}?tahun_akademik=" + tahun_akademik;
             });
         });
     </script>

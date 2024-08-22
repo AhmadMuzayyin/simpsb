@@ -4,14 +4,23 @@ namespace App\Http\Controllers\SPK;
 
 use App\Http\Controllers\Controller;
 use App\Models\HasilAkhir;
+use App\Models\Pendaftaran;
 use Illuminate\Http\Request;
 
 class RekapController extends Controller
 {
     public function index()
     {
-        $rekap = HasilAkhir::all();
-        return view('home.admin.spk.rekap.index', compact('rekap'));
+        $tahunAkademik = request()->get('tahun_akademik');
+        $hasilAkhirQuery = HasilAkhir::query();
+        if ($tahunAkademik) {
+            $hasilAkhirQuery->whereHas('siswa.pendaftaran', function ($query) use ($tahunAkademik) {
+                $query->where('tahun_akademik', $tahunAkademik);
+            });
+        }
+        $rekap = $hasilAkhirQuery->get();
+        $tahun_akademik = Pendaftaran::select('tahun_akademik')->distinct()->get();
+        return view('home.admin.spk.rekap.index', compact('rekap', 'tahun_akademik'));
     }
     public function update(Request $request)
     {

@@ -12,10 +12,19 @@
 </p>
 
 ## Description
-Aplikasi ini merupakan aplikasi yang digunakan untuk melakukan pendaftaran siswa baru. Aplikasi ini dibuat menggunakan bahasa pemrograman php dan framework laravel. Aplikasi ini memiliki beberapa fitur diantaranya:
+**SIMPSB (Sistem Penerimaan Siswa Baru)** adalah sebuah aplikasi yang dirancang untuk mempermudah proses pendaftaran dan seleksi calon siswa baru di lembaga pendidikan. Aplikasi ini mengotomatiskan berbagai tahapan dalam penerimaan siswa baru, mulai dari pendaftaran online, pengunggahan dokumen, hingga verifikasi data calon siswa. Dengan antarmuka yang user-friendly, SIMPSB memungkinkan admin dan pihak sekolah untuk mengelola pendaftaran siswa baru secara efisien dan terstruktur.
+Salah satu fitur unggulan dari SIMPSB adalah **seleksi bantuan siswa** yang dilengkapi dengan sistem pendukung keputusan (SPK) menggunakan **metode Profile Matching**. Fitur ini dirancang untuk membantu pihak sekolah dalam menentukan calon penerima bantuan berdasarkan kriteria yang telah ditetapkan. Dengan menggunakan metode Profile Matching, aplikasi ini mampu melakukan perbandingan profil siswa dengan kriteria ideal yang diharapkan, sehingga menghasilkan peringkat dan keputusan yang lebih akurat dan objektif dalam pemberian bantuan.
+Dengan SIMPSB, proses seleksi siswa baru dan pemberian bantuan dapat dilakukan dengan lebih transparan, cepat, dan efisien, menjadikan aplikasi ini sebagai solusi modern dalam manajemen penerimaan siswa baru di era digital.
+
+Aplikasi ini memiliki beberapa fitur diantaranya:
 1. Pendaftaran siswa baru
-4. Pendaftaran siswa baru dengan jalur pindahan
-5. Pendaftaran siswa baru dengan jalur umum
+2. Pendaftaran siswa baru dengan jalur pindahan
+3. Pendaftaran siswa baru dengan jalur umum
+4. Seleksi bantuan siswa
+5. Pengelolaan data siswa
+6. Pengelolaan data pendaftaran
+7. Galeri Kegiatan
+8. Blog Informasi
 
 ## Installation
 1. Clone repository ini
@@ -58,5 +67,3 @@ php artisan serve
 ## Contributing
 Pull requests dipersilakan. Untuk perubahan besar, harap buka issues terlebih dahulu untuk mendiskusikan apa yang ingin Anda ubah.
 Harap pastikan untuk memperbarui unit test sebagaimana mestinya.
-
-```

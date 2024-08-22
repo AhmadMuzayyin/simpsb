@@ -1,4 +1,3 @@
-# Sistem Penerimaan Siswa Baru
 <div align="center">
     
 # **Sistem Penerimaan Siswa Baru**

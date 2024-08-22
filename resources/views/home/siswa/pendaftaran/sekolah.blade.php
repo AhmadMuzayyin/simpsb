@@ -45,6 +45,21 @@
         </div>
     </div>
 </div>
+<div class="row mt-2">
+    <div class="col">
+        <label for="nilai_akademik">Nilai Akademik</label>
+        <select class="form-control @error('nilai_akademik') is-invalid @enderror" name="nilai_akademik"
+            id="nilai_akademik" placeholder="nilai_akademik"
+            value="{{ isset($siswa) ? $siswa->nilai_akademik : old('nilai_akademik') }}">
+            <option value="">-- Pilih Nilai Akademik --</option>
+            @foreach (\App\Helpers\EnumHelper::SubKriteria['Nilai Akademik'] as $nilai)
+                <option value="{{ $nilai }}">{{ $nilai }}</option>
+            @endforeach
+        </select>
+        <div class="invalid-feedback">
+        </div>
+    </div>
+</div>
 @push('js')
     <script>
         var siswa = @json($siswa);
@@ -57,6 +72,7 @@
                 var ijazah_terakhir = $('#ijazah_terakhir').val();
                 var nisn = $('#nisn').val();
                 var pindahan = $('#pindahan').val();
+                var nilai_akademik = $('#nilai_akademik').val();
                 $.ajax({
                     url: '{{ route('siswa.pendaftaran.sekolah') }}',
                     type: 'POST',
@@ -65,6 +81,7 @@
                         ijazah_terakhir: ijazah_terakhir,
                         nisn: nisn,
                         pindahan: pindahan,
+                        nilai_akademik: nilai_akademik,
                         _token: '{{ csrf_token() }}'
                     },
                     success: function(response) {

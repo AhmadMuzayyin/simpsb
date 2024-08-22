@@ -26,6 +26,7 @@ class SekolahRequest extends FormRequest
             'ijazah_terakhir' => 'required|in:SMP,MTS',
             'nisn' => 'required|numeric',
             'pindahan' => 'required|in:Ya,Tidak',
+            'nilai_akademik' => 'required|in:Kurang (0-50),Cukup (60-70),Baik (80-90),Sangat Baik (100)',
         ];
     }
 }

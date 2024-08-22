@@ -59,29 +59,29 @@
             <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar"
                 style="">
                 <div class="bg-white py-2 collapse-inner rounded">
-                    <a class="collapse-item" href="">Data Aspek</a>
-                    <a class="collapse-item" href="">Data Kriteria</a>
-                    <a class="collapse-item" href="">Data Penilaian</a>
+                    <a class="collapse-item" href="{{ route('admin.kriteria.index') }}">Data Kriteria</a>
+                    <a class="collapse-item" href="{{ route('admin.aspek.index') }}">Data Aspek</a>
+                    <a class="collapse-item" href="{{ route('admin.penilaian.index') }}">Data Penilaian</a>
                 </div>
             </div>
         </li>
         <!-- Nav Item - Pages Collapse Menu -->
-        <li class="nav-item {{ request()->routeIs('') ? 'active' : '' }}">
-            <a class="nav-link" href="">
+        <li class="nav-item {{ request()->routeIs('admin.perhitungan.*') ? 'active' : '' }}">
+            <a class="nav-link" href="{{ route('admin.perhitungan.index') }}">
                 <i class="fas fa-calculator"></i>
                 <span>Data Perhitungan</span>
             </a>
         </li>
         <!-- Nav Item - Pages Collapse Menu -->
-        <li class="nav-item {{ request()->routeIs() ? 'active' : '' }}">
-            <a class="nav-link" href="">
+        <li class="nav-item {{ request()->routeIs('admin.hasil_akhir.*') ? 'active' : '' }}">
+            <a class="nav-link" href="{{ route('admin.hasil_akhir.index') }}">
                 <i class="far fa-file-excel"></i>
                 <span>Data Hasil Akhir</span>
             </a>
         </li>
         <!-- Nav Item - Pages Collapse Menu -->
-        <li class="nav-item {{ request()->routeIs() ? 'active' : '' }}">
-            <a class="nav-link" href="">
+        <li class="nav-item {{ request()->routeIs('admin.rekap.index') ? 'active' : '' }}">
+            <a class="nav-link" href="{{ route('admin.rekap.index') }}">
                 <i class="fas fa-file-contract"></i>
                 <span>Data Rekapan</span>
             </a>

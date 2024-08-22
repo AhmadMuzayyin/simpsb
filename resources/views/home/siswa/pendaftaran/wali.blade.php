@@ -38,17 +38,29 @@
         </div>
         <div class="form-group">
             <label for="pekerjaan_ayah">Pekerjaan Ayah</label>
-            <input type="text" class="form-control @error('pekerjaan_ayah') is-invalid @enderror"
-                name="pekerjaan_ayah" id="pekerjaan_ayah" placeholder="Pekerjaan Ayah"
+            <select class="form-control @error('pekerjaan_ayah') is-invalid @enderror" name="pekerjaan_ayah"
+                id="pekerjaan_ayah" placeholder="Pekerjaan Ayah"
                 value="{{ isset($siswa) ? $siswa->pekerjaan_ayah : old('pekerjaan_ayah') }}">
+                <option value="" selected disabled>--- Pekerjaan Ayah ---</option>
+                @foreach (\App\Helpers\EnumHelper::SubKriteria['Pekerjaan Orang Tua'] as $workAyah)
+                    <option value="{{ $workAyah }}" {{ $siswa->pekerjaan_ayah == $workAyah ? 'selected' : '' }}>
+                        {{ $workAyah }}</option>
+                @endforeach
+            </select>
             <div class="invalid-feedback">
             </div>
         </div>
         <div class="form-group">
             <label for="penghasilan_ayah">Penghasilan Ayah</label>
-            <input type="number" class="form-control @error('penghasilan_ayah') is-invalid @enderror"
-                name="penghasilan_ayah" id="penghasilan_ayah" placeholder="Penghasilan Ayah" min="1000"
+            <select class="form-control @error('penghasilan_ayah') is-invalid @enderror" name="penghasilan_ayah"
+                id="penghasilan_ayah" placeholder="Penghasilan Ayah" min="1000"
                 value="{{ isset($siswa) ? $siswa->penghasilan_ayah : old('penghasilan_ayah') }}">
+                <option value="" selected disabled>--- Penghasilan Ayah ---</option>
+                @foreach (\App\Helpers\EnumHelper::SubKriteria['Penghasilan Orang Tua'] as $gajiAyah)
+                    <option value="{{ $gajiAyah }}" {{ $siswa->penghasilan_ayah == $gajiAyah ? 'selected' : '' }}>
+                        {{ $gajiAyah }}</option>
+                @endforeach
+            </select>
             <div class="invalid-feedback">
             </div>
         </div>
@@ -71,17 +83,29 @@
         </div>
         <div class="form-group">
             <label for="pekerjaan_ibu">Pekerjaan Ibu</label>
-            <input type="text" class="form-control @error('pekerjaan_ibu') is-invalid @enderror" name="pekerjaan_ibu"
+            <select class="form-control @error('pekerjaan_ibu') is-invalid @enderror" name="pekerjaan_ibu"
                 id="pekerjaan_ibu" placeholder="Pekrjaan Ibu"
                 value="{{ isset($siswa) ? $siswa->pekerjaan_ibu : old('pekerjaan_ibu') }}">
+                <option value="" selected disabled>--- Pekerjaan Ibu ---</option>
+                @foreach (\App\Helpers\EnumHelper::SubKriteria['Pekerjaan Orang Tua'] as $workIbu)
+                    <option value="{{ $workIbu }}"{{ $siswa->pekerjaan_ibu == $workIbu ? 'selected' : '' }}>
+                        {{ $workIbu }}</option>
+                @endforeach
+            </select>
             <div class="invalid-feedback">
             </div>
         </div>
         <div class="form-group">
             <label for="penghasilan_ibu">Penghasilan Ibu</label>
-            <input type="number" class="form-control @error('penghasilan_ibu') is-invalid @enderror"
-                name="penghasilan_ibu" id="penghasilan_ibu" placeholder="Penghasilan Ibu" min="1000"
+            <select class="form-control @error('penghasilan_ibu') is-invalid @enderror" name="penghasilan_ibu"
+                id="penghasilan_ibu" placeholder="Penghasilan Ibu" min="1000"
                 value="{{ isset($siswa) ? $siswa->penghasilan_ibu : old('penghasilan_ibu') }}">
+                <option value="" selected disabled>--- Penghasilan Ibu ---</option>
+                @foreach (\App\Helpers\EnumHelper::SubKriteria['Penghasilan Orang Tua'] as $gajiIbu)
+                    <option value="{{ $gajiIbu }}" {{ $siswa->penghasilan_ibu == $gajiIbu ? 'selected' : '' }}>
+                        {{ $gajiIbu }}</option>
+                @endforeach
+            </select>
             <div class="invalid-feedback">
             </div>
         </div>
@@ -117,9 +141,15 @@
     </div>
     <div class="col">
         <label for="pekerjaan_wali">Pekerjaan Wali</label>
-        <input type="text" class="form-control @error('pekerjaan_wali') is-invalid @enderror"
-            name="pekerjaan_wali" id="pekerjaan_wali" placeholder="Pekerjaan Wali"
+        <select class="form-control @error('pekerjaan_wali') is-invalid @enderror" name="pekerjaan_wali"
+            id="pekerjaan_wali" placeholder="Pekerjaan Wali"
             value="{{ isset($siswa) ? $siswa->pekerjaan_wali : old('pekerjaan_wali') }}">
+            <option value="" selected disabled>--- Pekerjaan Wali ---</option>
+            @foreach (\App\Helpers\EnumHelper::SubKriteria['Pekerjaan Orang Tua'] as $workWali)
+                <option value="{{ $workWali }}" {{ $siswa->pekerjaan_wali == $workWali ? 'selected' : '' }}>
+                    {{ $workWali }}</option>
+            @endforeach
+        </select>
         <div class="invalid-feedback">
         </div>
     </div>
@@ -127,9 +157,15 @@
 <div class="row mt-2">
     <div class="col">
         <label for="penghasilan_wali">Penghasilan Wali</label>
-        <input type="number" class="form-control @error('penghasilan_wali') is-invalid @enderror"
-            name="penghasilan_wali" id="penghasilan_wali" placeholder="Penghasilan Wali"
+        <select class="form-control @error('penghasilan_wali') is-invalid @enderror" name="penghasilan_wali"
+            id="penghasilan_wali" placeholder="Penghasilan Wali"
             value="{{ isset($siswa) ? $siswa->penghasilan_wali : old('penghasilan_wali') }}">
+            <option value="" selected disabled>--- Penghasilan Wali ---</option>
+            @foreach (\App\Helpers\EnumHelper::SubKriteria['Penghasilan Orang Tua'] as $gajWali)
+                <option value="{{ $gajWali }}" {{ $siswa->penghasilan_wali == $gajWali ? 'selected' : '' }}>
+                    {{ $gajWali }}</option>
+            @endforeach
+        </select>
         <div class="invalid-feedback">
         </div>
     </div>

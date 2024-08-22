@@ -104,17 +104,20 @@
 <div class="row mt-2">
     <div class="col">
         <label for="jumlah_saudara">Jumlah Saudara</label>
-        <input type="number" class="form-control @error('jumlah_saudara') is-invalid @enderror" name="jumlah_saudara"
-            id="jumlah_saudara" placeholder="Jumlah Saudara" min="0"
+        <select class="form-control @error('jumlah_saudara') is-invalid @enderror" name="jumlah_saudara"
+            id="jumlah_saudara" placeholder="Jumlah Saudara"
             value="{{ isset($siswa) ? $siswa->jumlah_saudara : old('jumlah_saudara') }}">
+            @foreach (\App\Helpers\EnumHelper::SubKriteria['Jumlah Saudara Kandung'] as $saudara)
+                <option value="{{ $saudara }}">{{ $saudara }}</option>
+            @endforeach
+        </select>
         <div class="invalid-feedback">
         </div>
     </div>
     <div class="col">
         <label for="anak_ke">Anak Ke</label>
-        <input type="number" class="form-control @error('anak_ke') is-invalid @enderror" name="anak_ke"
-            id="anak_ke" placeholder="Anak Ke" min="1"
-            value="{{ isset($siswa) ? $siswa->anak_ke : old('anak_ke') }}">
+        <input type="number" class="form-control @error('anak_ke') is-invalid @enderror" name="anak_ke" id="anak_ke"
+            placeholder="Anak Ke" min="1" value="{{ isset($siswa) ? $siswa->anak_ke : old('anak_ke') }}">
         <div class="invalid-feedback">
         </div>
     </div>

@@ -64,22 +64,24 @@ class SiswaPendaftaranController extends Controller
     }
     public function wali(Request $request)
     {
-        // dd($request->all());
         $siswa = $request->validate([
-            'kondisi_ayah' => 'required|string',
-            'kondisi_ibu' => 'required|string',
+            'kondisi_ayah' => 'required|string|in:Hidup,Meninggal',
+            'kondisi_ibu' => 'required|string|in:Hidup,Meninggal',
             'nama_wali' => 'nullable|string',
             'pekerjaan_wali' => 'nullable|string',
             'kondisi_wali' => 'nullable|string',
-            'penghasilan_wali' => 'nullable|numeric',
+            'penghasilan_wali' => 'nullable|string',
             'telpon_wali' => 'nullable|numeric',
             'alamat_wali' => 'nullable|string',
         ]);
         if ($siswa['kondisi_ayah'] == 'Hidup') {
             $validator = Validator::make($request->all(), [
                 'nama_ayah' => 'required|string',
-                'pekerjaan_ayah' => 'required|string',
-                'penghasilan_ayah' => 'required|numeric',
+                'pekerjaan_ayah' => [
+                    'required',
+                    'string',
+                ],
+                'penghasilan_ayah' => 'required',
                 'telpon_ayah' => 'required|numeric',
                 'alamat_ortu' => 'required|string',
             ]);
@@ -95,8 +97,11 @@ class SiswaPendaftaranController extends Controller
         if ($siswa['kondisi_ibu'] == 'Hidup') {
             $validator = Validator::make($request->all(), [
                 'nama_ibu' => 'required|string',
-                'pekerjaan_ibu' => 'required|string',
-                'penghasilan_ibu' => 'required|numeric',
+                'pekerjaan_ibu' => [
+                    'required',
+                    'string',
+                ],
+                'penghasilan_ibu' => 'required|string',
                 'telpon_ibu' => 'required|numeric',
                 'alamat_ortu' => 'required|string',
             ]);

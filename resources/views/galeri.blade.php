@@ -37,7 +37,7 @@
                                 <h3>{{ $galery->kategori }}</h3>
                                 <div class="port-icon mt-3">
                                     <a class="icon-ho venobox" href="{{ url($galery->gambar) }}"
-                                        data-title="{{ ucwords($galery->kategori) }}" data-gall="gall1"><i
+                                        data-title="{{ $galery->deskripsi }}" data-gall="{{ $galery->id }}"><i
                                             class="icofont-eye"></i></a>
                                     <a class="icon-ho" href="#"><i class="icofont-link"></i></a>
                                 </div>

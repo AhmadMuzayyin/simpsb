@@ -81,7 +81,7 @@ class SiswaPendaftaranController extends Controller
                     'required',
                     'string',
                 ],
-                'penghasilan_ayah' => 'required',
+                'penghasilan_ayah' => 'required_unless:pekerjaan_ayah,Tidak Bekerja',
                 'telpon_ayah' => 'required|numeric',
                 'alamat_ortu' => 'required|string',
             ]);
@@ -101,7 +101,7 @@ class SiswaPendaftaranController extends Controller
                     'required',
                     'string',
                 ],
-                'penghasilan_ibu' => 'required|string',
+                'penghasilan_ibu' => 'required_unless:pekerjaan_ibu,Tidak Bekerja|string',
                 'telpon_ibu' => 'required|numeric',
                 'alamat_ortu' => 'required|string',
             ]);

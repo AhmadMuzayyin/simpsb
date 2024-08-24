@@ -260,6 +260,7 @@
                     },
                     error: function(xhr) {
                         var res = xhr.responseJSON;
+                        toastr.error('Mohon inputkan data yang valid');
                         if (res.errors) {
                             $.each(res.errors, function(key, value) {
                                 $('#' + key).addClass('is-invalid');

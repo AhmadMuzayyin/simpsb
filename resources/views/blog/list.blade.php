@@ -1,7 +1,8 @@
 @extends('layouts.front.app')
 @section('content')
     <!-- START PAGEBREDCUMS -->
-    <div class="page-banner page-banner-overlay" data-background="assets/img/bg/banner-bg.jpg">
+    <div class="page-banner page-banner-overlay"
+        data-background="https://images.unsplash.com/photo-1664575196644-808978af9b1f?q=80&w=1587&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D">
         <div class="container h-100">
             <div class="row h-100">
                 <div class="col-lg-12 my-auto">

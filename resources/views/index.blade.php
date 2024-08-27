@@ -3,7 +3,8 @@
     <!-- START SLIDER SECTION -->
     <section class="slider-section">
         <div class="home-slides owl-carousel owl-theme">
-            <div class="home-single-slide" data-background="assets/img/bg/slide1.jpg">
+            <div class="home-single-slide"
+                data-background="https://images.unsplash.com/photo-1498243691581-b145c3f54a5a?q=80&w=1740&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D">
                 <div class="home-single-slide-overlay"></div>
                 <div class="home-single-slide-inner">
                     <div class="container">
@@ -25,7 +26,8 @@
                 </div>
             </div>
             <!-- end single slider -->
-            <div class="home-single-slide" data-background="assets/img/bg/slide2.jpg">
+            <div class="home-single-slide"
+                data-background="https://images.unsplash.com/photo-1571260899304-425eee4c7efc?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1yZWxhdGVkfDZ8fHxlbnwwfHx8fHw%3D">
                 <div class="home-single-slide-overlay"></div>
                 <div class="home-single-slide-inner">
                     <div class="container">
@@ -47,7 +49,8 @@
                 </div>
             </div>
             <!-- end single slider -->
-            <div class="home-single-slide" data-background="assets/img/bg/slide3.jpg">
+            <div class="home-single-slide"
+                data-background="https://images.unsplash.com/photo-1523050854058-8df90110c9f1?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1yZWxhdGVkfDN8fHxlbnwwfHx8fHw%3D">
                 <div class="home-single-slide-overlay"></div>
                 <div class="home-single-slide-inner">
                     <div class="container">
@@ -96,10 +99,12 @@
                 <div class="col-lg-6 col-md-6 col-12">
                     <div class="about-wel-img-sec img-overlay">
                         <a class="venobox" data-autoplay="true" data-vbtype="video" data-title="Intro Video"
-                            data-gall="videoh" href="https://www.youtube.com/embed/Oq61TxejZ5g"><i
+                            data-gall="videoh" href="https://www.youtube.com/embed/LlCwHnp3kL4"><i
                                 class="icofont-play-alt-2"></i></a>
                         <div class="img-wrap">
-                            <img class="img-fluid" src="assets/img/bg/home-about-img.jpg" alt="">
+                            <img class="img-fluid"
+                                src="https://images.unsplash.com/photo-1516321497487-e288fb19713f?q=80&w=1740&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+                                alt="">
                         </div>
                     </div>
                 </div>
@@ -112,7 +117,7 @@
 
     <!-- START COUNTER SECTION -->
     <section id="counter" class="counter-padding overlay section-back-image"
-        data-background="assets/img/bg/counter-bg.jpg">
+        data-background="https://images.unsplash.com/photo-1497633762265-9d179a990aa6?q=80&w=1746&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D">
         <div class="auto-container">
             <div class="row">
                 <div class="col-lg-8 col-md-8 col-12 mx-lg-auto mx-md-auto mx-0">

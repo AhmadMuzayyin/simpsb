@@ -63,7 +63,7 @@ Route::middleware(['auth'])->group(function () {
             Route::get('/aspek', 'index')->name('aspek.index');
             Route::post('/aspek/store', 'store')->name('aspek.store');
             Route::post('/aspek/{aspek}/update', 'update')->name('aspek.update');
-            Route::get('/aspek/{aspek}/destroy', 'destroy')->name('aspek.destroy');
+            Route::delete('/aspek/{aspek}/destroy', 'destroy')->name('aspek.destroy');
         });
         Route::controller(PenilaianController::class)->group(function () {
             Route::get('/penilaian', 'index')->name('penilaian.index');

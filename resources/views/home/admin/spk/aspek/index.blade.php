@@ -41,7 +41,17 @@
                                         <td>{{ $as->nilai }}</td>
                                         <td>{{ $as->tipe }}</td>
                                         <td>{{ $as->kode }}</td>
-                                        <td></td>
+                                        <td>
+                                            <button class="btn btn-info btn-circle btn-sm" data-toggle="modal"
+                                                data-target="#editAspek-{{ $as->id }}">
+                                                <i class="fas fa-pencil"></i>
+                                            </button>
+                                            @include('home.admin.spk.aspek.modalEdit')
+                                            <button class="btn btn-danger btn-circle btn-sm delete"
+                                                data-id="{{ $as->id }}">
+                                                <i class="fas fa-trash"></i>
+                                            </button>
+                                        </td>
                                     </tr>
                                 @endforeach
                             </tbody>
@@ -193,7 +203,24 @@
 @push('js')
     <script>
         $(document).ready(function() {
-            // $('#table').DataTable();
+            var btnDelete = $('.delete');
+            btnDelete.click(function() {
+                var id = $(this).data('id');
+                var url = `aspek/${id}/destroy`;
+                // make confirm using alert
+                if (confirm('Apakah anda yakin akan menghapus data ini?')) {
+                    $.ajax({
+                        url: url,
+                        type: 'DELETE',
+                        data: {
+                            '_token': "{{ csrf_token() }}"
+                        },
+                        success: function(data) {
+                            location.reload();
+                        }
+                    });
+                }
+            });
         });
     </script>
 @endpush

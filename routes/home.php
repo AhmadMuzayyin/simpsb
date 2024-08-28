@@ -83,6 +83,7 @@ Route::middleware(['auth'])->group(function () {
         Route::controller(RekapController::class)->group(function () {
             Route::get('/rekap', 'index')->name('rekap.index');
             Route::post('/rekap/update', 'update')->name('rekap.update');
+            Route::get('/rekap/print', 'print')->name('rekap.print');
         });
         Route::controller(AlumniController::class)->as('alumni.')->group(function () {
             Route::get('alumni', 'index')->name('index');

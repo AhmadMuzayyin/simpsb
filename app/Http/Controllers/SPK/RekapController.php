@@ -43,4 +43,16 @@ class RekapController extends Controller
             ]);
         }
     }
+    public function print()
+    {
+        $tahunAkademik = request()->get('tahun_akademik');
+        $hasilAkhirQuery = HasilAkhir::query();
+        if ($tahunAkademik) {
+            $hasilAkhirQuery->whereHas('siswa.pendaftaran', function ($query) use ($tahunAkademik) {
+                $query->where('tahun_akademik', $tahunAkademik);
+            });
+        }
+        $rekap = $hasilAkhirQuery->where('status', 'Layak')->get();
+        return view('home.admin.spk.rekap.print', compact('rekap'));
+    }
 }

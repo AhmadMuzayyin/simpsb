@@ -9,11 +9,15 @@
                         <div class="col">
                             <h6 class="m-0 font-weight-bold text-primary">Data Rekapan</h6>
                         </div>
-                        <div class="col-right">
+                        <div class="col-right d-flex">
                             @php
                                 $tahun_akdemik = request()->get('tahun_akademik');
                             @endphp
-                            <select name="tahun_akademik" id="tahun_akademik" class="form-control">
+                            <a href="{{ route('admin.rekap.print') . "?tahun_akademik=$tahun_akdemik" }}"
+                                class="btn btn-primary" target="_blank">
+                                <i class="fas fa-print"></i>
+                            </a>
+                            <select name="tahun_akademik" id="tahun_akademik" class="form-control mx-3">
                                 <option value="" selected disabled>Pilih Tahun Akademik</option>
                                 @foreach ($tahun_akademik as $tahun)
                                     <option value="{{ $tahun->tahun_akademik }}"

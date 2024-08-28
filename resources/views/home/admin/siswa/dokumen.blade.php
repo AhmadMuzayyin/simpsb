@@ -41,6 +41,27 @@
                                         class="img-fluid">
                                 </td>
                             </tr>
+                            <tr>
+                                <td>KTP Ayah</td>
+                                <td>
+                                    <img src="{{ url($item->dokumen_siswa->ktp_ayah) }}" alt="gambar" width="100"
+                                        class="img-fluid">
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>KTP Ibu</td>
+                                <td>
+                                    <img src="{{ url($item->dokumen_siswa->ktp_ibu) }}" alt="gambar" width="100"
+                                        class="img-fluid">
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>KTP Wali</td>
+                                <td>
+                                    <img src="{{ url($item->dokumen_siswa->ktp_wali) }}" alt="gambar" width="100"
+                                        class="img-fluid">
+                                </td>
+                            </tr>
                             @if ($item->pindahan == 'Ya')
                                 <tr>
                                     <td>Surat Keterangan Pindah Dari Sekolah Asal</td>

@@ -18,7 +18,7 @@ class RekapController extends Controller
                 $query->where('tahun_akademik', $tahunAkademik);
             });
         }
-        $rekap = $hasilAkhirQuery->get();
+        $rekap = $hasilAkhirQuery->orderBy('ranking', 'asc')->get();
         $tahun_akademik = Pendaftaran::select('tahun_akademik')->distinct()->get();
         return view('home.admin.spk.rekap.index', compact('rekap', 'tahun_akademik'));
     }

@@ -63,7 +63,7 @@ class HasilAkhirController extends Controller
                 'status' => $attribute['status'],
             ]);
         }
-        $result = HasilAkhir::get()->orderBy('ranking', 'asc');
+        $result = HasilAkhir::orderBy('ranking', 'asc')->get();
         return view('home.admin.spk.hasil.index', compact('result'));
     }
 }

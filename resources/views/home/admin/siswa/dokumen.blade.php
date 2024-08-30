@@ -16,50 +16,50 @@
                             <tr>
                                 <td>File Ijazah</td>
                                 <td>
-                                    <img src="{{ url($item->dokumen_siswa->file_pendukung) }}" alt="gambar"
-                                        max-height="100" width="100" class="img-fluid"></img>
+                                    <img src="{{ $item->dokumen_siswa->file_pendukung != null ? url($item->dokumen_siswa->file_pendukung) : '' }}"
+                                        alt="gambar" max-height="100" width="100" class="img-fluid"></img>
                                 </td>
                             </tr>
                             <tr>
                                 <td>File Akta Lahir</td>
                                 <td>
-                                    <img src="{{ url($item->dokumen_siswa->file_akta) }}" alt="gambar"
-                                        max-height="100" width="100" class="img-fluid"></img>
+                                    <img src="{{ $item->dokumen_siswa->file_akta != null ? url($item->dokumen_siswa->file_akta) : '' }}"
+                                        alt="gambar" max-height="100" width="100" class="img-fluid"></img>
                                 </td>
                             </tr>
                             <tr>
                                 <td>File Kartu Keluarga</td>
                                 <td>
-                                    <img src="{{ url($item->dokumen_siswa->file_kk) }}" alt="gambar" max-height="100"
-                                        width="100" class="img-fluid"></img>
+                                    <img src="{{ $item->dokumen_siswa->file_kk != null ? url($item->dokumen_siswa->file_kk) : '' }}"
+                                        alt="gambar" max-height="100" width="100" class="img-fluid"></img>
                                 </td>
                             </tr>
                             <tr>
                                 <td>File Pas Foto 3x4</td>
                                 <td>
-                                    <img src="{{ url($item->dokumen_siswa->file_foto) }}" alt="gambar" width="100"
-                                        class="img-fluid">
+                                    <img src="{{ $item->dokumen_siswa->file_foto != null ? url($item->dokumen_siswa->file_foto) : '' }}"
+                                        alt="gambar" width="100" class="img-fluid">
                                 </td>
                             </tr>
                             <tr>
                                 <td>KTP Ayah</td>
                                 <td>
-                                    <img src="{{ url($item->dokumen_siswa->ktp_ayah) }}" alt="gambar" width="100"
-                                        class="img-fluid">
+                                    <img src="{{ $item->dokumen_siswa->ktp_ayah != null ? url($item->dokumen_siswa->ktp_ayah) : '' }}"
+                                        alt="gambar" width="100" class="img-fluid">
                                 </td>
                             </tr>
                             <tr>
                                 <td>KTP Ibu</td>
                                 <td>
-                                    <img src="{{ url($item->dokumen_siswa->ktp_ibu) }}" alt="gambar" width="100"
-                                        class="img-fluid">
+                                    <img src="{{ $item->dokumen_siswa->ktp_ibu != null ? url($item->dokumen_siswa->ktp_ibu) : '' }}"
+                                        alt="gambar" width="100" class="img-fluid">
                                 </td>
                             </tr>
                             <tr>
                                 <td>KTP Wali</td>
                                 <td>
-                                    <img src="{{ url($item->dokumen_siswa->ktp_wali) }}" alt="gambar" width="100"
-                                        class="img-fluid">
+                                    <img src="{{ $item->dokumen_siswa->ktp_wali != null ? url($item->dokumen_siswa->ktp_wali) : '' }}"
+                                        alt="gambar" width="100" class="img-fluid">
                                 </td>
                             </tr>
                             @if ($item->pindahan == 'Ya')

@@ -9,7 +9,7 @@
                     <div class="card-body">
                         <div class="row no-gutters align-items-center">
                             <div class="col mr-2">
-                                <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">
+                                <div class="text-xs font-weight-bold text-dark text-uppercase mb-1">
                                     Kelas</div>
                                 <div class="h5 mb-0 font-weight-bold text-gray-800">{{ $kelas->count() }}</div>
                             </div>
@@ -26,7 +26,7 @@
                     <div class="card-body">
                         <div class="row no-gutters align-items-center">
                             <div class="col mr-2">
-                                <div class="text-xs font-weight-bold text-success text-uppercase mb-1">
+                                <div class="text-xs font-weight-bold text-dark text-uppercase mb-1">
                                     Siswa</div>
                                 <div class="h5 mb-0 font-weight-bold text-gray-800">{{ $siswa->count() }}</div>
                             </div>
@@ -43,7 +43,7 @@
                     <div class="card-body">
                         <div class="row no-gutters align-items-center">
                             <div class="col mr-2">
-                                <div class="text-xs font-weight-bold text-info text-uppercase mb-1">Galeri
+                                <div class="text-xs font-weight-bold text-dark text-uppercase mb-1">Galeri
                                 </div>
                                 <div class="h5 mb-0 font-weight-bold text-gray-800">{{ $galeri->count() }}</div>
                             </div>
@@ -60,7 +60,7 @@
                     <div class="card-body">
                         <div class="row no-gutters align-items-center">
                             <div class="col mr-2">
-                                <div class="text-xs font-weight-bold text-warning text-uppercase mb-1">
+                                <div class="text-xs font-weight-bold text-dark text-uppercase mb-1">
                                     Post</div>
                                 <div class="h5 mb-0 font-weight-bold text-gray-800">{{ $posts->count() }}</div>
                             </div>
@@ -79,7 +79,7 @@
                     <div class="card-body">
                         <div class="row no-gutters align-items-center">
                             <div class="col mr-2">
-                                <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">
+                                <div class="text-xs font-weight-bold text-dark text-uppercase mb-1">
                                     Data Aspek</div>
                                 <div class="h5 mb-0 font-weight-bold text-gray-800">{{ $aspek }}</div>
                             </div>
@@ -96,7 +96,7 @@
                     <div class="card-body">
                         <div class="row no-gutters align-items-center">
                             <div class="col mr-2">
-                                <div class="text-xs font-weight-bold text-success text-uppercase mb-1">
+                                <div class="text-xs font-weight-bold text-dark text-uppercase mb-1">
                                     Data Kriteria</div>
                                 <div class="h5 mb-0 font-weight-bold text-gray-800">{{ $kriteria }}</div>
                             </div>
@@ -113,7 +113,7 @@
                     <div class="card-body">
                         <div class="row no-gutters align-items-center">
                             <div class="col mr-2">
-                                <div class="text-xs font-weight-bold text-info text-uppercase mb-1">Data Penilaian
+                                <div class="text-xs font-weight-bold text-dark text-uppercase mb-1">Data Penilaian
                                 </div>
                                 <div class="h5 mb-0 font-weight-bold text-gray-800">{{ $penilaian }}</div>
                             </div>
@@ -130,7 +130,7 @@
                     <div class="card-body">
                         <div class="row no-gutters align-items-center">
                             <div class="col mr-2">
-                                <div class="text-xs font-weight-bold text-warning text-uppercase mb-1">
+                                <div class="text-xs font-weight-bold text-dark text-uppercase mb-1">
                                     Data Perhitungan</div>
                                 <div class="h5 mb-0 font-weight-bold text-gray-800">{{ $penilaian }}</div>
                             </div>
@@ -149,7 +149,7 @@
                     <div class="card-body">
                         <div class="row no-gutters align-items-center">
                             <div class="col mr-2">
-                                <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">
+                                <div class="text-xs font-weight-bold text-dark text-uppercase mb-1">
                                     Data Hasil Akhir</div>
                                 <div class="h5 mb-0 font-weight-bold text-gray-800">{{ $hasilAkhir }}</div>
                             </div>
@@ -166,7 +166,7 @@
                     <div class="card-body">
                         <div class="row no-gutters align-items-center">
                             <div class="col mr-2">
-                                <div class="text-xs font-weight-bold text-success text-uppercase mb-1">
+                                <div class="text-xs font-weight-bold text-dark text-uppercase mb-1">
                                     Siswa Alumni</div>
                                 <div class="h5 mb-0 font-weight-bold text-gray-800">{{ $siswaAlumni }}</div>
                             </div>
@@ -183,7 +183,7 @@
                     <div class="card-body">
                         <div class="row no-gutters align-items-center">
                             <div class="col mr-2">
-                                <div class="text-xs font-weight-bold text-info text-uppercase mb-1">Data Rekapan
+                                <div class="text-xs font-weight-bold text-dark text-uppercase mb-1">Data Rekapan
                                 </div>
                                 <div class="h5 mb-0 font-weight-bold text-gray-800">{{ $hasilAkhir }}</div>
                             </div>

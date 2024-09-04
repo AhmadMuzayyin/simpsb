@@ -193,20 +193,42 @@
         $(document).ready(function() {
             let kondisiAyah = $('#kondisi_ayah')
             let kondisiIbu = $('#kondisi_ibu')
-            kondisiAyah.val() == 'Meninggal' ? $('#father').hide() : $('#father').show()
-            kondisiIbu.val() == 'Meninggal' ? $('#mother').hide() : $('#mother').show()
-            kondisiAyah.on('change', function() {
+            let pekerjaanAyah = $('#pekerjaan_ayah')
+            let penghasilanAyah = $('#penghasilan_ayah')
+            let telponAyah = $('#telpon_ayah')
+            let pekerjaanIbu = $('#pekerjaan_ibu')
+            let penghasilanIbu = $('#penghasilan_ibu')
+            let telponIbu = $('#telpon_ibu')
+            if (kondisiAyah.val() == 'Meninggal') {
+                pekerjaanAyah.prop('disabled', true)
+                penghasilanAyah.prop('disabled', true)
+                telponAyah.prop('disabled', true)
+            }
+            if (kondisiIbu.val() == 'Meninggal') {
+                pekerjaanIbu.prop('disabled', true)
+                penghasilanIbu.prop('disabled', true)
+                telponIbu.prop('disabled', true)
+            }
+            kondisiAyah.change(function() {
                 if ($(this).val() == 'Meninggal') {
-                    $('#father').hide();
+                    pekerjaanAyah.prop('disabled', true)
+                    penghasilanAyah.prop('disabled', true)
+                    telponAyah.prop('disabled', true)
                 } else {
-                    $('#father').show();
+                    pekerjaanAyah.prop('disabled', false)
+                    penghasilanAyah.prop('disabled', false)
+                    telponAyah.prop('disabled', false)
                 }
             })
-            kondisiIbu.on('change', function() {
+            kondisiIbu.change(function() {
                 if ($(this).val() == 'Meninggal') {
-                    $('#mother').hide();
+                    pekerjaanIbu.prop('disabled', true)
+                    penghasilanIbu.prop('disabled', true)
+                    telponIbu.prop('disabled', true)
                 } else {
-                    $('#mother').show();
+                    pekerjaanIbu.prop('disabled', false)
+                    penghasilanIbu.prop('disabled', false)
+                    telponIbu.prop('disabled', false)
                 }
             })
         })

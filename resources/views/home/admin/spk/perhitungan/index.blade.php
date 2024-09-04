@@ -9,7 +9,18 @@
                         <div class="col">
                             <h6 class="m-0 font-weight-bold text-primary">Data Perhitungan</h6>
                         </div>
-                        <div class="col-right">
+                        <div class="col-right d-flex">
+                            @php
+                                $tahun_akdemik = request()->get('tahun_akademik');
+                            @endphp
+                            <select name="tahun_akademik" id="tahun_akademik" class="form-control mx-3">
+                                <option value="" selected disabled>Pilih Tahun Akademik</option>
+                                @foreach ($tahun_akademik as $tahun)
+                                    <option value="{{ $tahun->tahun_akademik }}"
+                                        {{ $tahun_akdemik == $tahun->tahun_akademik ? 'selected' : '' }}>
+                                        {{ $tahun->tahun_akademik }}</option>
+                                @endforeach
+                            </select>
                         </div>
                     </div>
                 </div>
@@ -764,6 +775,11 @@
                 info: false,
                 ordering: false,
             })
+            $('#tahun_akademik').on('change', function() {
+                var tahun_akademik = $(this).val();
+                window.location.href = "{{ route('admin.perhitungan.index') }}?tahun_akademik=" +
+                    tahun_akademik;
+            });
         });
     </script>
 @endpush
